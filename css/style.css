@@ -2,27 +2,27 @@
    CSS VARIABLES & DESIGN TOKENS
    ============================================ */
 :root {
-  /* Colors — Warm earthy palette, no dark/black tones */
-  --color-1: #ccd5ae;          /* sage green — accents/highlights/tags */
-  --color-2: #e9edc9;          /* light sage — secondary backgrounds */
-  --color-3: #fefae0;          /* cream — main page background */
-  --color-4: #faedcd;          /* light tan — card/section backgrounds */
-  --color-5: #d4a373;          /* warm brown/tan — buttons, links, hover, borders */
+  /* Colors — Warm monochromatic brown palette, no green */
+  --color-1: #e8d5c0;          /* soft beige — accents/highlights/tags */
+  --color-2: #f5ede3;          /* pale cream — secondary backgrounds */
+  --color-3: #faf6f1;          /* warm off-white — main page background */
+  --color-4: #f0e6d8;          /* light tan — card/section backgrounds */
+  --color-5: #b07c4f;          /* warm golden brown — buttons, links, hover, borders */
 
-  --color-text-primary: #4a3728;     /* dark brown charcoal — body text */
-  --color-text-secondary: #6b5344;   /* medium brown — secondary text */
-  --color-text-tertiary: #9c8576;    /* muted brown — tertiary/subtle text */
-  --color-text-on-accent: #fefae0;   /* cream text on warm brown buttons */
+  --color-text-primary: #3d2e22;     /* dark espresso — body text */
+  --color-text-secondary: #5c4a3a;   /* medium brown — secondary text */
+  --color-text-tertiary: #8c7b6b;    /* muted brown — tertiary/subtle text */
+  --color-text-on-accent: #faf6f1;   /* off-white text on brown buttons */
 
   /* Derived / semantic aliases */
   --color-bg: var(--color-3);
   --color-bg-alt: var(--color-2);
   --color-surface: var(--color-4);
   --color-border: var(--color-5);
-  --color-border-light: #e6d8c3;
+  --color-border-light: #e2d4c4;
 
   --color-accent: var(--color-5);
-  --color-accent-hover: #c4914e;
+  --color-accent-hover: #96663c;
   --color-accent-light: var(--color-4);
   --color-accent-subtle: var(--color-2);
 
@@ -214,7 +214,7 @@ h1, h2, h3, h4 {
   left: 0;
   right: 0;
   height: var(--nav-height);
-  background-color: rgba(254, 250, 224, 0.92);
+  background-color: rgba(250, 246, 241, 0.92);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid transparent;
@@ -367,6 +367,7 @@ h1, h2, h3, h4 {
   position: relative;
   z-index: 1;
   max-width: 720px;
+  margin: 0 auto;
 }
 
 .hero-greeting {
