@@ -26,6 +26,6 @@ Personal portfolio website of me
 
 ---
 
-*Visit  @[portfolio](https://github.com/gokulsanjayreddy)*
+*Visit  @[portfolio](https://gokulsanjayreddy.github.io/)*
 
 ---
