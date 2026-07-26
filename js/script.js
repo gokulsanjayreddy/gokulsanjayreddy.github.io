@@ -117,16 +117,17 @@
      5. Active nav-link highlighting on scroll
      ------------------------------------------- */
   function highlightActiveNav() {
-    const scrollPos = window.scrollY + navbar.offsetHeight + 80;
-    const isAtPageEnd = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2;
-    let activeSectionId = null;
+    const pageHeight = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
+    const scrollBottom = window.scrollY + window.innerHeight;
+    const isAtPageEnd = scrollBottom >= pageHeight - 80;
+    const marker = window.scrollY + navbar.offsetHeight + Math.round(window.innerHeight * 0.35);
+    let activeSectionId = sections[0] ? sections[0].getAttribute('id') : null;
 
     sections.forEach(function (section) {
       const sectionTop = section.offsetTop;
-      const sectionHeight = section.offsetHeight;
       const sectionId = section.getAttribute('id');
 
-      if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+      if (marker >= sectionTop) {
         activeSectionId = sectionId;
       }
     });
