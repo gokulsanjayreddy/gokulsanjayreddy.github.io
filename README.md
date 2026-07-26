@@ -24,10 +24,3 @@ Personal portfolio website of me
 └── README.md
 ```
 
-
-
----
-
-## 📄 License
-
-© Gokul Sanjay Reddy Chatrala. All rights reserved.
