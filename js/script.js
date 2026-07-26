@@ -12,7 +12,7 @@
   const navLinks = document.querySelector('.nav-links');
   const navOverlay = document.querySelector('.nav-overlay');
   const navAnchors = document.querySelectorAll('.nav-link');
-  const sections = document.querySelectorAll('section[id]');
+  const sections = document.querySelectorAll('section[id], footer[id]');
   const revealElements = document.querySelectorAll('.reveal');
 
   /* -------------------------------------------
@@ -84,10 +84,42 @@
   });
 
   /* -------------------------------------------
-     4. Active nav-link highlighting on scroll
+     4. Clickable cards and list items
+     ------------------------------------------- */
+  const clickableItems = document.querySelectorAll('[data-href]');
+
+  function openItemLink(item) {
+    const href = item.getAttribute('data-href');
+
+    if (href) {
+      window.open(href, '_blank', 'noopener,noreferrer');
+    }
+  }
+
+  clickableItems.forEach(function (item) {
+    item.addEventListener('click', function (e) {
+      if (e.target.closest('a')) {
+        return;
+      }
+
+      openItemLink(item);
+    });
+
+    item.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        openItemLink(item);
+      }
+    });
+  });
+
+  /* -------------------------------------------
+     5. Active nav-link highlighting on scroll
      ------------------------------------------- */
   function highlightActiveNav() {
     const scrollPos = window.scrollY + navbar.offsetHeight + 80;
+    const isAtPageEnd = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2;
+    let activeSectionId = null;
 
     sections.forEach(function (section) {
       const sectionTop = section.offsetTop;
@@ -95,13 +127,16 @@
       const sectionId = section.getAttribute('id');
 
       if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
-        navAnchors.forEach(function (link) {
-          link.classList.remove('active');
-          if (link.getAttribute('href') === '#' + sectionId) {
-            link.classList.add('active');
-          }
-        });
+        activeSectionId = sectionId;
       }
+    });
+
+    if (isAtPageEnd) {
+      activeSectionId = sections[sections.length - 1].getAttribute('id');
+    }
+
+    navAnchors.forEach(function (link) {
+      link.classList.toggle('active', link.getAttribute('href') === '#' + activeSectionId);
     });
   }
 
@@ -109,7 +144,7 @@
   highlightActiveNav(); // run on load
 
   /* -------------------------------------------
-     5. Scroll-reveal using Intersection Observer
+     6. Scroll-reveal using Intersection Observer
      ------------------------------------------- */
   if ('IntersectionObserver' in window) {
     const revealObserver = new IntersectionObserver(
@@ -138,7 +173,7 @@
   }
 
   /* -------------------------------------------
-     6. Dynamic copyright year
+     7. Dynamic copyright year
      ------------------------------------------- */
   const yearSpan = document.getElementById('current-year');
   if (yearSpan) {
