@@ -25,8 +25,13 @@
 </head>
 <body>
 
+  <!-- Custom Glowing Magnetic Cursor -->
+  <div class="cursor-dot" id="cursor-dot"></div>
+  <div class="cursor-ring" id="cursor-ring"></div>
+
   <!-- ========== NAVBAR ========== -->
   <nav class="navbar" id="navbar">
+    <div class="scroll-progress-bar" id="scroll-progress-bar"></div>
     <div class="container">
       <a href="#hero" class="nav-logo">GSR</a>
 
@@ -49,21 +54,36 @@
 
   <!-- ========== HERO ========== -->
   <section class="hero" id="hero">
+    <!-- Floating background decorative ML / Geometry SVG nodes -->
+    <div class="hero-bg-shapes">
+      <svg class="floating-shape shape-1" width="140" height="140" viewBox="0 0 100 100" fill="none">
+        <circle cx="50" cy="50" r="42" stroke="var(--color-5)" stroke-width="1.5" stroke-dasharray="6 6" opacity="0.35"/>
+        <circle cx="50" cy="50" r="18" fill="var(--color-1)" opacity="0.45"/>
+      </svg>
+      <svg class="floating-shape shape-2" width="160" height="160" viewBox="0 0 100 100" fill="none">
+        <polygon points="50,10 90,90 10,90" stroke="var(--color-5)" stroke-width="1.5" opacity="0.3"/>
+        <circle cx="50" cy="50" r="8" fill="var(--color-5)" opacity="0.35"/>
+      </svg>
+      <svg class="floating-shape shape-3" width="100" height="100" viewBox="0 0 100 100" fill="none">
+        <rect x="20" y="20" width="60" height="60" rx="14" stroke="var(--color-5)" stroke-width="2" transform="rotate(45 50 50)" opacity="0.25"/>
+      </svg>
+    </div>
+
     <div class="container">
       <div class="hero-content">
-        <p class="hero-greeting">Hey, I'm</p>
-        <h1 class="hero-name">Gokul Sanjay</h1>
-        <p class="hero-tagline">ML enthusiast and software developer — passionate about building machine learning models and AI agents that solve real-world problems.</p>
+        <p class="hero-greeting" id="hero-greeting">Hey, I'm</p>
+        <h1 class="hero-name" id="hero-name">Gokul Sanjay</h1>
+        <p class="hero-tagline" id="hero-tagline">ML enthusiast and software developer — passionate about building machine learning models and AI agents that solve real-world problems.</p>
 
         <div class="hero-cta">
-          <a href="https://github.com/gokulsanjayreddy" target="_blank" rel="noopener noreferrer" class="btn btn-outline" id="cta-github">
+          <a href="https://github.com/gokulsanjayreddy" target="_blank" rel="noopener noreferrer" class="btn btn-outline magnetic-btn" id="cta-github">
             <!-- GitHub SVG -->
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.37.5 0 5.78 0 12.292c0 5.211 3.438 9.63 8.205 11.188.6.111.82-.254.82-.567 0-.28-.01-1.022-.015-2.005-3.338.711-4.042-1.582-4.042-1.582-.546-1.361-1.333-1.724-1.333-1.724-1.089-.73.083-.716.083-.716 1.205.083 1.838 1.215 1.838 1.215 1.07 1.802 2.807 1.281 3.492.98.108-.762.418-1.281.762-1.576-2.665-.297-5.466-1.309-5.466-5.827 0-1.287.465-2.34 1.228-3.165-.123-.298-.532-1.497.117-3.12 0 0 1.001-.315 3.28 1.209A11.5 11.5 0 0 1 12 6.292c1.014.005 2.034.134 2.988.394 2.277-1.524 3.276-1.209 3.276-1.209.65 1.623.241 2.822.118 3.12.765.825 1.226 1.878 1.226 3.165 0 4.53-2.805 5.527-5.475 5.818.43.364.814 1.083.814 2.182 0 1.574-.014 2.846-.014 3.232 0 .316.216.683.824.567C20.565 21.917 24 17.5 24 12.292 24 5.78 18.627.5 12 .5z"/></svg>
+            <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.37.5 0 5.78 0 12.292c0 5.211 3.438 9.63 8.205 11.188.6.111.82-.254.82-.567 0-.28-.01-1.022-.015-2.005-3.338.711-4.042-1.582-4.042-1.582-.546-1.361-1.333-1.724-1.333-1.724-1.089-.73.083-.716.083-.716 1.205.083 1.838 1.215 1.838 1.215 1.07 1.802 2.807 1.281 3.492.98.108-.762.418-1.281.762-1.576-2.665-.297-5.466-1.309-5.466-5.827 0-1.287.465-2.34 1.228-3.165-.123-.298-.532-1.497.117-3.12 0 0 1.001-.315 3.28 1.209A11.5 11.5 0 0 1 12 6.292c1.014.005 2.034.134 2.988.394 2.277-1.524 3.276-1.209 3.276-1.209.65 1.623.241 2.822.118 3.12.765.825 1.226 1.878 1.226 3.165 0 4.53-2.805 5.527-5.475 5.818.43.364.814 1.083.814 2.182 0 1.574-.014 2.846-.014 3.232 0 .316.216.683.824.567C20.565 21.917 24 17.5 24 12.292 24 5.78 18.627.5 12 .5z"/></svg>
             GitHub
           </a>
-          <a href="https://www.linkedin.com/in/gokulsanjayreddychatrala/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" id="cta-linkedin">
+          <a href="https://www.linkedin.com/in/gokulsanjayreddychatrala/" target="_blank" rel="noopener noreferrer" class="btn btn-outline magnetic-btn" id="cta-linkedin">
             <!-- LinkedIn SVG -->
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zM6.84 20.452H3.834V9H6.84v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zM6.84 20.452H3.834V9H6.84v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
             LinkedIn
           </a>
         </div>
@@ -87,10 +107,10 @@
         <div class="project-card reveal reveal-delay-1" data-href="https://github.com/gokulsanjayreddy/Concepts_of_physics" role="link" tabindex="0">
           <div class="project-card-header">
             <div class="project-card-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+              <svg class="animated-svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
             </div>
             <div class="project-card-links">
-              <a href="https://github.com/gokulsanjayreddy/Concepts_of_physics" target="_blank" rel="noopener noreferrer" class="project-card-link" title="GitHub repo">
+              <a href="https://github.com/gokulsanjayreddy/Concepts_of_physics" target="_blank" rel="noopener noreferrer" class="project-card-link magnetic-btn" title="GitHub repo">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.37.5 0 5.78 0 12.292c0 5.211 3.438 9.63 8.205 11.188.6.111.82-.254.82-.567 0-.28-.01-1.022-.015-2.005-3.338.711-4.042-1.582-4.042-1.582-.546-1.361-1.333-1.724-1.333-1.724-1.089-.73.083-.716.083-.716 1.205.083 1.838 1.215 1.838 1.215 1.07 1.802 2.807 1.281 3.492.98.108-.762.418-1.281.762-1.576-2.665-.297-5.466-1.309-5.466-5.827 0-1.287.465-2.34 1.228-3.165-.123-.298-.532-1.497.117-3.12 0 0 1.001-.315 3.28 1.209A11.5 11.5 0 0 1 12 6.292c1.014.005 2.034.134 2.988.394 2.277-1.524 3.276-1.209 3.276-1.209.65 1.623.241 2.822.118 3.12.765.825 1.226 1.878 1.226 3.165 0 4.53-2.805 5.527-5.475 5.818.43.364.814 1.083.814 2.182 0 1.574-.014 2.846-.014 3.232 0 .316.216.683.824.567C20.565 21.917 24 17.5 24 12.292 24 5.78 18.627.5 12 .5z"/></svg>
               </a>
             </div>
@@ -126,8 +146,8 @@
             <p class="practice-item-name">basics_of_HTML-CSS</p>
             <p class="practice-item-note">HTML &amp; CSS practice</p>
           </div>
-          <a href="https://github.com/gokulsanjayreddy/basics_of_HTML-CSS" target="_blank" rel="noopener noreferrer" class="practice-item-link" title="View repo">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          <a href="https://github.com/gokulsanjayreddy/basics_of_HTML-CSS" target="_blank" rel="noopener noreferrer" class="practice-item-link magnetic-btn" title="View repo">
+            <svg class="arrow-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
           </a>
         </div>
 
@@ -137,8 +157,8 @@
             <p class="practice-item-name">gitstartedwithus_v2</p>
             <p class="practice-item-note">Git/GitHub workflow practice (forked)</p>
           </div>
-          <a href="https://github.com/gokulsanjayreddy/gitstartedwithus_v2" target="_blank" rel="noopener noreferrer" class="practice-item-link" title="View repo">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          <a href="https://github.com/gokulsanjayreddy/gitstartedwithus_v2" target="_blank" rel="noopener noreferrer" class="practice-item-link magnetic-btn" title="View repo">
+            <svg class="arrow-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
           </a>
         </div>
 
@@ -148,8 +168,8 @@
             <p class="practice-item-name">DevLabs_2.0</p>
             <p class="practice-item-note">DevLabs 2.0, OpenLake IIT Bhilai (forked)</p>
           </div>
-          <a href="https://github.com/gokulsanjayreddy/DevLabs_2.0" target="_blank" rel="noopener noreferrer" class="practice-item-link" title="View repo">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          <a href="https://github.com/gokulsanjayreddy/DevLabs_2.0" target="_blank" rel="noopener noreferrer" class="practice-item-link magnetic-btn" title="View repo">
+            <svg class="arrow-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
           </a>
         </div>
 
@@ -174,8 +194,8 @@
             <p class="notes-item-name">NumPy Notes</p>
             <p class="notes-item-note">Core NumPy concepts, array operations, and reference examples.</p>
           </div>
-          <a href="https://github.com/gokulsanjayreddy/Data_Analysis-Visualization_libraries/blob/main/numpy/numpy_notes.md" target="_blank" rel="noopener noreferrer" class="notes-item-link" title="View notes">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          <a href="https://github.com/gokulsanjayreddy/Data_Analysis-Visualization_libraries/blob/main/numpy/numpy_notes.md" target="_blank" rel="noopener noreferrer" class="notes-item-link magnetic-btn" title="View notes">
+            <svg class="arrow-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
           </a>
         </div>
 
@@ -185,8 +205,8 @@
             <p class="notes-item-name">Pandas Notes</p>
             <p class="notes-item-note">DataFrames, data wrangling, and analysis patterns.</p>
           </div>
-          <a href="https://github.com/gokulsanjayreddy/Data_Analysis-Visualization_libraries/blob/main/Pandas/pandas_notes.md" target="_blank" rel="noopener noreferrer" class="notes-item-link" title="View notes">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          <a href="https://github.com/gokulsanjayreddy/Data_Analysis-Visualization_libraries/blob/main/Pandas/pandas_notes.md" target="_blank" rel="noopener noreferrer" class="notes-item-link magnetic-btn" title="View notes">
+            <svg class="arrow-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
           </a>
         </div>
 
@@ -196,13 +216,10 @@
             <p class="notes-item-name">Matplotlib Notes</p>
             <p class="notes-item-note">Plotting, visualization techniques, and chart customization.</p>
           </div>
-          <a href="https://github.com/gokulsanjayreddy/Data_Analysis-Visualization_libraries/tree/main/mplib" target="_blank" rel="noopener noreferrer" class="notes-item-link" title="View notes">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          <a href="https://github.com/gokulsanjayreddy/Data_Analysis-Visualization_libraries/tree/main/mplib" target="_blank" rel="noopener noreferrer" class="notes-item-link magnetic-btn" title="View notes">
+            <svg class="arrow-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
           </a>
         </div>
-
-
-        <!-- ✏️ Add more note entries here as needed -->
 
       </div><!-- /.notes-list -->
     </div>
@@ -218,23 +235,23 @@
 
         <div class="footer-socials">
           <!-- GitHub -->
-          <a href="https://github.com/gokulsanjayreddy" target="_blank" rel="noopener noreferrer" class="social-link" title="GitHub" id="footer-github">
+          <a href="https://github.com/gokulsanjayreddy" target="_blank" rel="noopener noreferrer" class="social-link magnetic-btn" title="GitHub" id="footer-github">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.37.5 0 5.78 0 12.292c0 5.211 3.438 9.63 8.205 11.188.6.111.82-.254.82-.567 0-.28-.01-1.022-.015-2.005-3.338.711-4.042-1.582-4.042-1.582-.546-1.361-1.333-1.724-1.333-1.724-1.089-.73.083-.716.083-.716 1.205.083 1.838 1.215 1.838 1.215 1.07 1.802 2.807 1.281 3.492.98.108-.762.418-1.281.762-1.576-2.665-.297-5.466-1.309-5.466-5.827 0-1.287.465-2.34 1.228-3.165-.123-.298-.532-1.497.117-3.12 0 0 1.001-.315 3.28 1.209A11.5 11.5 0 0 1 12 6.292c1.014.005 2.034.134 2.988.394 2.277-1.524 3.276-1.209 3.276-1.209.65 1.623.241 2.822.118 3.12.765.825 1.226 1.878 1.226 3.165 0 4.53-2.805 5.527-5.475 5.818.43.364.814 1.083.814 2.182 0 1.574-.014 2.846-.014 3.232 0 .316.216.683.824.567C20.565 21.917 24 17.5 24 12.292 24 5.78 18.627.5 12 .5z"/></svg>
           </a>
           <!-- LinkedIn -->
-          <a href="https://www.linkedin.com/in/gokulsanjayreddychatrala/" target="_blank" rel="noopener noreferrer" class="social-link" title="LinkedIn" id="footer-linkedin">
+          <a href="https://www.linkedin.com/in/gokulsanjayreddychatrala/" target="_blank" rel="noopener noreferrer" class="social-link magnetic-btn" title="LinkedIn" id="footer-linkedin">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zM6.84 20.452H3.834V9H6.84v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
           </a>
           <!-- X (Twitter) -->
-          <a href="https://x.com/gokulsanjayredd" target="_blank" rel="noopener noreferrer" class="social-link" title="X (Twitter)" id="footer-x">
+          <a href="https://x.com/gokulsanjayredd" target="_blank" rel="noopener noreferrer" class="social-link magnetic-btn" title="X (Twitter)" id="footer-x">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
           </a>
           <!-- Instagram -->
-          <a href="https://www.instagram.com/gokulsanjayreddy" target="_blank" rel="noopener noreferrer" class="social-link" title="Instagram" id="footer-instagram">
+          <a href="https://www.instagram.com/gokulsanjayreddy" target="_blank" rel="noopener noreferrer" class="social-link magnetic-btn" title="Instagram" id="footer-instagram">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
           </a>
           <!-- Email -->
-          <a href="mailto:gokulsanjayreddy@gmail.com" class="social-link" title="Email" id="footer-email">
+          <a href="mailto:gokulsanjayreddy@gmail.com" class="social-link magnetic-btn email-pulse-btn" title="Email" id="footer-email">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
           </a>
         </div>
@@ -245,6 +262,12 @@
     </div>
   </footer>
 
+
+  <!-- GSAP CDN Libraries -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/TextPlugin.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
 
   <!-- Script -->
   <script src="js/script.js"></script>
