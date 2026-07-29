@@ -2,29 +2,29 @@
    CSS VARIABLES & DESIGN TOKENS
    ============================================ */
 :root {
-  /* Colors — Clean, Subtle & Smooth Developer Dark Theme */
-  --color-1: #1f2430;          /* slate tag/badge background */
-  --color-2: #0d1117;          /* uniform main page background */
-  --color-3: #0d1117;          /* uniform main page background */
-  --color-4: #161b22;          /* surface & card background */
-  --color-5: #38bdf8;          /* smooth developer cyan accent */
+  /* Colors — Warm monochromatic brown palette, no green */
+  --color-1: #e8d5c0;          /* soft beige — accents/highlights/tags */
+  --color-2: #f5ede3;          /* pale cream — secondary backgrounds */
+  --color-3: #faf6f1;          /* warm off-white — main page background */
+  --color-4: #f0e6d8;          /* light tan — card/section backgrounds */
+  --color-5: #b07c4f;          /* warm golden brown — buttons, links, hover, borders */
 
-  --color-text-primary: #f0f6fc;     /* crisp off-white text */
-  --color-text-secondary: #8b949e;   /* soft muted slate text */
-  --color-text-tertiary: #6e7681;    /* subtle gray text */
-  --color-text-on-accent: #0d1117;   /* dark text on accent buttons */
+  --color-text-primary: #3d2e22;     /* dark espresso — body text */
+  --color-text-secondary: #5c4a3a;   /* medium brown — secondary text */
+  --color-text-tertiary: #8c7b6b;    /* muted brown — tertiary/subtle text */
+  --color-text-on-accent: #faf6f1;   /* off-white text on brown buttons */
 
   /* Derived / semantic aliases */
-  --color-bg: #0d1117;               /* uniform background for hero, about, projects, practice, notes */
-  --color-footer-bg: #161b22;        /* slightly different dark tone for footer */
-  --color-surface: #161b22;          /* card surface background */
-  --color-border: #30363d;
-  --color-border-light: #21262d;
+  --color-bg: var(--color-3);
+  --color-bg-alt: var(--color-2);
+  --color-surface: var(--color-4);
+  --color-border: var(--color-5);
+  --color-border-light: #e2d4c4;
 
   --color-accent: var(--color-5);
-  --color-accent-hover: #0284c7;
-  --color-accent-light: #161b22;
-  --color-accent-subtle: #1f2430;
+  --color-accent-hover: #96663c;
+  --color-accent-light: var(--color-4);
+  --color-accent-subtle: var(--color-2);
 
   /* Typography */
   --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -72,12 +72,12 @@
   --radius-lg: 16px;
   --radius-full: 9999px;
 
-  /* Shadows — Soft, clean dark shadows (no glowing halos) */
-  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.3);
-  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.4);
-  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.45);
-  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.5);
-  --shadow-xl: 0 16px 32px rgba(0, 0, 0, 0.6);
+  /* Shadows — warm tones */
+  --shadow-xs: 0 1px 2px rgba(74, 55, 40, 0.05);
+  --shadow-sm: 0 1px 3px rgba(74, 55, 40, 0.07), 0 1px 2px rgba(74, 55, 40, 0.04);
+  --shadow-md: 0 4px 12px rgba(74, 55, 40, 0.08), 0 2px 4px rgba(74, 55, 40, 0.04);
+  --shadow-lg: 0 10px 30px rgba(74, 55, 40, 0.1), 0 4px 8px rgba(74, 55, 40, 0.05);
+  --shadow-xl: 0 20px 40px rgba(74, 55, 40, 0.12), 0 8px 16px rgba(74, 55, 40, 0.06);
 
   /* Transitions */
   --transition-fast: 0.15s ease;
@@ -214,7 +214,7 @@ h1, h2, h3, h4 {
   left: 0;
   right: 0;
   height: var(--nav-height);
-  background-color: rgba(13, 17, 23, 0.88);
+  background-color: rgba(250, 246, 241, 0.92);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid transparent;
@@ -338,9 +338,28 @@ h1, h2, h3, h4 {
 }
 
 /* Subtle decorative background element */
-.hero::before,
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -200px;
+  right: -200px;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, var(--color-1) 0%, transparent 70%);
+  opacity: 0.35;
+  pointer-events: none;
+}
+
 .hero::after {
-  display: none;
+  content: '';
+  position: absolute;
+  bottom: -150px;
+  left: -150px;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, var(--color-2) 0%, transparent 70%);
+  opacity: 0.4;
+  pointer-events: none;
 }
 
 .hero-content {
@@ -477,7 +496,7 @@ h1, h2, h3, h4 {
    ABOUT SECTION
    ============================================ */
 .about {
-  background-color: var(--color-bg);
+  background-color: var(--color-4);
 }
 
 .about-content {
@@ -537,7 +556,7 @@ h1, h2, h3, h4 {
    PROJECTS SECTION
    ============================================ */
 .projects {
-  background-color: var(--color-bg);
+  background-color: var(--color-2);
 }
 
 .projects-grid {
@@ -547,7 +566,7 @@ h1, h2, h3, h4 {
 }
 
 .project-card {
-  background-color: var(--color-surface);
+  background-color: var(--color-3);
   border: 1px solid var(--color-border-light);
   border-radius: var(--radius-lg);
   padding: var(--space-2xl);
@@ -583,7 +602,7 @@ h1, h2, h3, h4 {
   width: 44px;
   height: 44px;
   background-color: var(--color-1);
-  color: var(--color-accent);
+  color: var(--color-text-primary);
   border-radius: var(--radius-md);
   display: flex;
   align-items: center;
@@ -614,7 +633,7 @@ h1, h2, h3, h4 {
 
 .project-card-link:hover {
   color: var(--color-accent);
-  background-color: var(--color-1);
+  background-color: var(--color-4);
 }
 
 .project-card-link svg {
@@ -659,7 +678,7 @@ h1, h2, h3, h4 {
    PRACTICE / LEARNING SECTION
    ============================================ */
 .practice {
-  background-color: var(--color-bg);
+  background-color: var(--color-4);
 }
 
 .practice-list {
@@ -676,7 +695,7 @@ h1, h2, h3, h4 {
   justify-content: space-between;
   gap: var(--space-md);
   padding: var(--space-lg) var(--space-xl);
-  background-color: var(--color-surface);
+  background-color: var(--color-3);
   border: 1px solid var(--color-border-light);
   border-radius: var(--radius-md);
   cursor: pointer;
@@ -722,7 +741,7 @@ h1, h2, h3, h4 {
 
 .practice-item-link:hover {
   color: var(--color-accent);
-  background-color: var(--color-1);
+  background-color: var(--color-4);
 }
 
 .practice-item-link svg {
@@ -734,7 +753,7 @@ h1, h2, h3, h4 {
    NOTES SECTION
    ============================================ */
 .notes {
-  background-color: var(--color-bg);
+  background-color: var(--color-2);
 }
 
 .notes-list {
@@ -751,7 +770,7 @@ h1, h2, h3, h4 {
   justify-content: space-between;
   gap: var(--space-md);
   padding: var(--space-lg) var(--space-xl);
-  background-color: var(--color-surface);
+  background-color: var(--color-3);
   border: 1px solid var(--color-border-light);
   border-radius: var(--radius-md);
   cursor: pointer;
@@ -798,7 +817,7 @@ h1, h2, h3, h4 {
 
 .notes-item-link:hover {
   color: var(--color-accent);
-  background-color: var(--color-1);
+  background-color: var(--color-4);
 }
 
 .notes-item-link svg {
@@ -810,7 +829,7 @@ h1, h2, h3, h4 {
    FOOTER / CONTACT
    ============================================ */
 .footer {
-  background-color: var(--color-footer-bg);
+  background-color: var(--color-4);
   border-top: 1px solid var(--color-border-light);
   padding: var(--space-3xl) 0;
   min-height: 65vh;
@@ -856,7 +875,7 @@ h1, h2, h3, h4 {
   align-items: center;
   justify-content: center;
   color: var(--color-text-secondary);
-  background-color: var(--color-surface);
+  background-color: var(--color-3);
   border: 1px solid var(--color-border-light);
   border-radius: 50%;
   transition: all var(--transition-base);
@@ -937,7 +956,7 @@ h1, h2, h3, h4 {
   .nav-overlay {
     position: fixed;
     inset: 0;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(74, 55, 40, 0.2);
     opacity: 0;
     visibility: hidden;
     transition: opacity var(--transition-base), visibility var(--transition-base);
@@ -1048,7 +1067,7 @@ h1, h2, h3, h4 {
   left: 0;
   width: 100%;
   height: 3px;
-  background: var(--color-accent);
+  background: linear-gradient(90deg, var(--color-5), #d49563, var(--color-1));
   transform-origin: left center;
   transform: scaleX(0);
   z-index: 1002;
@@ -1087,14 +1106,14 @@ h1, h2, h3, h4 {
     z-index: 9998;
     transform: translate(-50%, -50%);
     transition: border-color 0.3s ease, background-color 0.3s ease;
-    background: transparent;
+    background: rgba(176, 124, 79, 0.05);
   }
 
   .cursor-ring.cursor-active {
     width: 54px;
     height: 54px;
-    border-color: var(--color-accent);
-    background: rgba(56, 189, 248, 0.08);
+    border-color: #96663c;
+    background: rgba(176, 124, 79, 0.14);
   }
 }
 
