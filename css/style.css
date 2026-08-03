@@ -1074,55 +1074,6 @@ h1, h2, h3, h4 {
   pointer-events: none;
 }
 
-/* Custom Glowing Magnetic Cursor */
-@media (hover: hover) and (pointer: fine) {
-  body {
-    cursor: default;
-  }
-
-  .cursor-dot {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 8px;
-    height: 8px;
-    background-color: var(--color-5);
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 9999;
-    transform: translate(-50%, -50%);
-    transition: opacity 0.3s ease;
-  }
-
-  .cursor-ring {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 36px;
-    height: 36px;
-    border: 1.5px solid var(--color-5);
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 9998;
-    transform: translate(-50%, -50%);
-    transition: border-color 0.3s ease, background-color 0.3s ease;
-    background: rgba(176, 124, 79, 0.05);
-  }
-
-  .cursor-ring.cursor-active {
-    width: 54px;
-    height: 54px;
-    border-color: #96663c;
-    background: rgba(176, 124, 79, 0.14);
-  }
-}
-
-@media (hover: none) or (pointer: coarse) {
-  .cursor-dot,
-  .cursor-ring {
-    display: none !important;
-  }
-}
 
 /* 3D Perspective Containers */
 .projects-grid,

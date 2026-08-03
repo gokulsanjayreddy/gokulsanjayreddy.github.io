@@ -24,41 +24,13 @@
   const navOverlay = document.querySelector('.nav-overlay');
   const navAnchors = document.querySelectorAll('.nav-link');
   const sections = document.querySelectorAll('section[id], footer[id]');
-  const cursorDot = document.getElementById('cursor-dot');
-  const cursorRing = document.getElementById('cursor-ring');
   const progressBar = document.getElementById('scroll-progress-bar');
   const revealElements = document.querySelectorAll('.reveal');
 
   /* -------------------------------------------
-     3. Custom Glowing Magnetic Cursor & Magnetics
+     3. Magnetic Buttons Pull Effect
      ------------------------------------------- */
-  if (isGsapAvailable && cursorDot && cursorRing) {
-    const xDotTo = gsap.quickTo(cursorDot, 'x', { duration: 0.1, ease: 'power3' });
-    const yDotTo = gsap.quickTo(cursorDot, 'y', { duration: 0.1, ease: 'power3' });
-    const xRingTo = gsap.quickTo(cursorRing, 'x', { duration: 0.35, ease: 'power2.out' });
-    const yRingTo = gsap.quickTo(cursorRing, 'y', { duration: 0.35, ease: 'power2.out' });
-
-    window.addEventListener('mousemove', (e) => {
-      xDotTo(e.clientX);
-      yDotTo(e.clientY);
-      xRingTo(e.clientX);
-      yRingTo(e.clientY);
-    });
-
-    /* Hover active states for ring cursor */
-    const interactiveSelectors = 'a, button, .project-card, .practice-item, .notes-item, .tag, .social-link, .nav-logo';
-    document.querySelectorAll(interactiveSelectors).forEach((el) => {
-      el.addEventListener('mouseenter', () => {
-        cursorRing.classList.add('cursor-active');
-        gsap.to(cursorDot, { scale: 1.5, duration: 0.2 });
-      });
-      el.addEventListener('mouseleave', () => {
-        cursorRing.classList.remove('cursor-active');
-        gsap.to(cursorDot, { scale: 1, duration: 0.2 });
-      });
-    });
-
-    /* Magnetic Button Pull Effect */
+  if (isGsapAvailable) {
     document.querySelectorAll('.magnetic-btn').forEach((btn) => {
       btn.addEventListener('mousemove', (e) => {
         const rect = btn.getBoundingClientRect();
