@@ -35,6 +35,8 @@
       <a href="#hero" class="nav-logo">GSR</a>
 
       <ul class="nav-links" id="nav-links">
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
         <li><a href="#projects" class="nav-link">Projects</a></li>
         <li><a href="#practice" class="nav-link">Practice</a></li>
         <li><a href="#notes" class="nav-link">Notes</a></li>
@@ -68,16 +70,39 @@
         <rect x="20" y="20" width="60" height="60" rx="14" stroke="var(--color-5)" stroke-width="2"
           transform="rotate(45 50 50)" opacity="0.25" />
       </svg>
+      <!-- Neural Network Cluster -->
+      <svg class="floating-shape shape-4" width="130" height="130" viewBox="0 0 100 100" fill="none">
+        <line x1="20" y1="30" x2="50" y2="70" stroke="var(--color-5)" stroke-width="1" stroke-dasharray="4 4" opacity="0.3" />
+        <line x1="80" y1="30" x2="50" y2="70" stroke="var(--color-5)" stroke-width="1" stroke-dasharray="4 4" opacity="0.3" />
+        <line x1="20" y1="30" x2="80" y2="30" stroke="var(--color-5)" stroke-width="1" opacity="0.25" />
+        <circle cx="20" cy="30" r="6" fill="var(--color-1)" stroke="var(--color-5)" stroke-width="1.5" opacity="0.5" />
+        <circle cx="80" cy="30" r="6" fill="var(--color-1)" stroke="var(--color-5)" stroke-width="1.5" opacity="0.5" />
+        <circle cx="50" cy="70" r="8" fill="var(--color-5)" opacity="0.3" />
+      </svg>
+      <!-- Hexagonal Tech Token -->
+      <svg class="floating-shape shape-5" width="110" height="110" viewBox="0 0 100 100" fill="none">
+        <polygon points="50,5 90,27.5 90,72.5 50,95 10,72.5 10,27.5" stroke="var(--color-5)" stroke-width="1.5" stroke-dasharray="8 4" opacity="0.25" />
+        <circle cx="50" cy="50" r="5" fill="var(--color-5)" opacity="0.4" />
+      </svg>
     </div>
 
     <div class="container">
       <div class="hero-content">
         <p class="hero-greeting" id="hero-greeting">Hey, I'm</p>
         <h1 class="hero-name" id="hero-name">Gokul Sanjay</h1>
-        <p class="hero-tagline" id="hero-tagline">ML enthusiast and software developer — passionate about building
-          machine learning models and AI agents that solve real-world problems.</p>
+        <p class="hero-tagline" id="hero-tagline">2nd year undergraduate at IIT Bhilai focused on machine learning systems, data-driven applications, and automating real-world workflows.</p>
 
         <div class="hero-cta">
+          <a href="assets/resume.pdf" download class="btn btn-outline magnetic-btn" id="cta-resume">
+            <!-- Download / Resume SVG -->
+            <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+              <polyline points="7 10 12 15 17 10" />
+              <line x1="12" y1="15" x2="12" y2="3" />
+            </svg>
+            Resume
+          </a>
           <a href="https://github.com/gokulsanjayreddy" target="_blank" rel="noopener noreferrer"
             class="btn btn-outline magnetic-btn" id="cta-github">
             <!-- GitHub SVG -->
@@ -102,19 +127,242 @@
   </section>
 
 
+  <!-- ========== ABOUT & EDUCATION ========== -->
+  <section class="about section" id="about">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2 class="section-title">About &amp; Education</h2>
+        <p class="section-subtitle">Background, academic focus, and what I build.</p>
+      </div>
+
+      <div class="about-card-integrated reveal reveal-delay-1">
+        <div class="about-text-content">
+          <p class="about-paragraph">
+            I am a 2nd year undergraduate student pursuing my <strong>B.Tech in Data Science and Artificial Intelligence</strong> at the <strong>Indian Institute of Technology (IIT) Bhilai</strong>, graduating in <strong>2029</strong> with a current academic standing of <strong>8.65 CGPA</strong>.
+          </p>
+          <p class="about-paragraph">
+            Based in Raipur, Chhattisgarh, I focus on designing machine learning systems, data engineering pipelines, and building automation tools that turn complex models into reliable, real-world applications.
+          </p>
+        </div>
+
+        <div class="about-highlights-row">
+          <div class="about-highlight-pill">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+              <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+            </svg>
+            <span><strong>IIT Bhilai</strong> &bull; Raipur</span>
+          </div>
+          <div class="about-highlight-pill">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="16 18 22 12 16 6"/>
+              <polyline points="8 6 2 12 8 18"/>
+            </svg>
+            <span><strong>Data Science &amp; AI</strong></span>
+          </div>
+          <div class="about-highlight-pill">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="8" r="7"/>
+              <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/>
+            </svg>
+            <span><strong>8.65 CGPA</strong></span>
+          </div>
+          <div class="about-highlight-pill">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+              <line x1="16" y1="2" x2="16" y2="6"/>
+              <line x1="8" y1="2" x2="8" y2="6"/>
+              <line x1="3" y1="10" x2="21" y2="10"/>
+            </svg>
+            <span>Class of <strong>2029</strong></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========== SKILLS ========== -->
+  <section class="skills section" id="skills">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2 class="section-title">Skills &amp; Technologies</h2>
+        <p class="section-subtitle">Languages, libraries, and developer tools used across my repositories.</p>
+      </div>
+
+      <div class="skills-grid">
+        <!-- Languages -->
+        <div class="skills-card reveal reveal-delay-1">
+          <div class="skills-card-header">
+            <div class="skills-card-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="16 18 22 12 16 6" />
+                <polyline points="8 6 2 12 8 18" />
+              </svg>
+            </div>
+            <h3 class="skills-card-title">Languages</h3>
+          </div>
+          <div class="skills-tags">
+            <span class="tag">Python</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+          </div>
+        </div>
+
+        <!-- ML / Data -->
+        <div class="skills-card reveal reveal-delay-2">
+          <div class="skills-card-header">
+            <div class="skills-card-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21.21 15.89A10 10 0 1 1 8 2.83" />
+                <path d="M22 12A10 10 0 0 0 12 2v10z" />
+              </svg>
+            </div>
+            <h3 class="skills-card-title">ML &amp; Data</h3>
+          </div>
+          <div class="skills-tags">
+            <span class="tag">NumPy</span>
+            <span class="tag">Pandas</span>
+            <span class="tag">Matplotlib</span>
+            <span class="tag">Plotly</span>
+            <span class="tag">Seaborn</span>
+            <span class="tag">scikit-learn</span>
+            <span class="tag">Streamlit</span>
+          </div>
+        </div>
+
+        <!-- Web -->
+        <div class="skills-card reveal reveal-delay-3">
+          <div class="skills-card-header">
+            <div class="skills-card-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10" />
+                <line x1="2" y1="12" x2="22" y2="12" />
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+              </svg>
+            </div>
+            <h3 class="skills-card-title">Web &amp; Backend</h3>
+          </div>
+          <div class="skills-tags">
+            <span class="tag">FastAPI</span>
+            <span class="tag">Flask</span>
+            <span class="tag">React</span>
+            <span class="tag">Tailwind</span>
+            <span class="tag">SQLite</span>
+            <span class="tag">SQLAlchemy</span>
+          </div>
+        </div>
+
+        <!-- Tools -->
+        <div class="skills-card reveal reveal-delay-4">
+          <div class="skills-card-header">
+            <div class="skills-card-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path
+                  d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
+              </svg>
+            </div>
+            <h3 class="skills-card-title">Tools &amp; Workflow</h3>
+          </div>
+          <div class="skills-tags">
+            <span class="tag">Git</span>
+            <span class="tag">GitHub</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
 
   <!-- ========== PROJECTS ========== -->
   <section class="projects section" id="projects">
     <div class="container">
       <div class="section-header reveal">
         <h2 class="section-title">Projects</h2>
-        <p class="section-subtitle">A selection of my main, completed work.</p>
+        <p class="section-subtitle">Selected machine learning models and web development projects.</p>
       </div>
 
       <div class="projects-grid">
 
-        <!-- ── Concepts of Physics ── -->
+        <!-- ── Crop Recommendation System ── -->
         <div class="project-card reveal reveal-delay-1"
+          data-href="https://github.com/gokulsanjayreddy/crop-recommendation-system" role="link" tabindex="0">
+          <div class="project-card-header">
+            <div class="project-card-icon">
+              <svg class="animated-svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2v8" />
+                <path d="m4.93 10.93 1.41 1.41" />
+                <path d="M2 18h2" />
+                <path d="M20 18h2" />
+                <path d="m19.07 10.93-1.41 1.41" />
+                <path d="M22 22H2" />
+                <path d="m8 6 4-4 4 4" />
+                <path d="M16 18a4 4 0 0 0-8 0" />
+              </svg>
+            </div>
+            <div class="project-card-links">
+              <a href="https://github.com/gokulsanjayreddy/crop-recommendation-system" target="_blank"
+                rel="noopener noreferrer" class="project-card-link magnetic-btn" title="GitHub repo">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12 .5C5.37.5 0 5.78 0 12.292c0 5.211 3.438 9.63 8.205 11.188.6.111.82-.254.82-.567 0-.28-.01-1.022-.015-2.005-3.338.711-4.042-1.582-4.042-1.582-.546-1.361-1.333-1.724-1.333-1.724-1.089-.73.083-.716.083-.716 1.205.083 1.838 1.215 1.838 1.215 1.07 1.802 2.807 1.281 3.492.98.108-.762.418-1.281.762-1.576-2.665-.297-5.466-1.309-5.466-5.827 0-1.287.465-2.34 1.228-3.165-.123-.298-.532-1.497.117-3.12 0 0 1.001-.315 3.28 1.209A11.5 11.5 0 0 1 12 6.292c1.014.005 2.034.134 2.988.394 2.277-1.524 3.276-1.209 3.276-1.209.65 1.623.241 2.822.118 3.12.765.825 1.226 1.878 1.226 3.165 0 4.53-2.805 5.527-5.475 5.818.43.364.814 1.083.814 2.182 0 1.574-.014 2.846-.014 3.232 0 .316.216.683.824.567C20.565 21.917 24 17.5 24 12.292 24 5.78 18.627.5 12 .5z" />
+                </svg>
+              </a>
+            </div>
+          </div>
+          <h3 class="project-card-title">Crop Recommendation System</h3>
+          <p class="project-card-desc">Full-stack AI system ranking the top-3 crops using a two-stage ML pipeline (RandomForest &amp; gradient boosting) with crop rotation penalties. FastAPI backend with React frontend (synthetic data prototype).</p>
+          <div class="project-card-tags">
+            <span class="tag">Python</span>
+            <span class="tag">FastAPI</span>
+            <span class="tag">React</span>
+            <span class="tag">Tailwind</span>
+            <span class="tag">scikit-learn</span>
+            <span class="tag">SQLite</span>
+          </div>
+        </div>
+
+        <!-- ── AutoInsight ── -->
+        <div class="project-card reveal reveal-delay-2"
+          data-href="https://github.com/gokulsanjayreddy/AutoInsight" role="link" tabindex="0">
+          <div class="project-card-header">
+            <div class="project-card-icon">
+              <svg class="animated-svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="20" x2="18" y2="10" />
+                <line x1="12" y1="20" x2="12" y2="4" />
+                <line x1="6" y1="20" x2="6" y2="14" />
+              </svg>
+            </div>
+            <div class="project-card-links">
+              <a href="https://github.com/gokulsanjayreddy/AutoInsight" target="_blank"
+                rel="noopener noreferrer" class="project-card-link magnetic-btn" title="GitHub repo">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12 .5C5.37.5 0 5.78 0 12.292c0 5.211 3.438 9.63 8.205 11.188.6.111.82-.254.82-.567 0-.28-.01-1.022-.015-2.005-3.338.711-4.042-1.582-4.042-1.582-.546-1.361-1.333-1.724-1.333-1.724-1.089-.73.083-.716.083-.716 1.205.083 1.838 1.215 1.838 1.215 1.07 1.802 2.807 1.281 3.492.98.108-.762.418-1.281.762-1.576-2.665-.297-5.466-1.309-5.466-5.827 0-1.287.465-2.34 1.228-3.165-.123-.298-.532-1.497.117-3.12 0 0 1.001-.315 3.28 1.209A11.5 11.5 0 0 1 12 6.292c1.014.005 2.034.134 2.988.394 2.277-1.524 3.276-1.209 3.276-1.209.65 1.623.241 2.822.118 3.12.765.825 1.226 1.878 1.226 3.165 0 4.53-2.805 5.527-5.475 5.818.43.364.814 1.083.814 2.182 0 1.574-.014 2.846-.014 3.232 0 .316.216.683.824.567C20.565 21.917 24 17.5 24 12.292 24 5.78 18.627.5 12 .5z" />
+                </svg>
+              </a>
+            </div>
+          </div>
+          <h3 class="project-card-title">AutoInsight</h3>
+          <p class="project-card-desc">Streamlit web application automating exploratory data analysis on CSVs with column-type inference, dataset profiling, and interactive Plotly visualization views.</p>
+          <div class="project-card-tags">
+            <span class="tag">Python</span>
+            <span class="tag">Streamlit</span>
+            <span class="tag">Pandas</span>
+            <span class="tag">Matplotlib</span>
+            <span class="tag">Plotly</span>
+          </div>
+        </div>
+
+        <!-- ── Concepts of Physics ── -->
+        <div class="project-card reveal reveal-delay-3"
           data-href="https://github.com/gokulsanjayreddy/Concepts_of_physics" role="link" tabindex="0">
           <div class="project-card-header">
             <div class="project-card-icon">
@@ -135,8 +383,7 @@
             </div>
           </div>
           <h3 class="project-card-title">Concepts of Physics</h3>
-          <p class="project-card-desc">A website that helps students understand physics better, built with HTML, CSS and
-            Python (Flask).</p>
+          <p class="project-card-desc">Educational web platform helping students learn and visualize core physics concepts through interactive lessons built with Flask, HTML, and CSS.</p>
           <div class="project-card-tags">
             <span class="tag">HTML</span>
             <span class="tag">CSS</span>
@@ -349,6 +596,14 @@
     </div>
   </footer>
 
+  <!-- Back to Top Button -->
+  <button class="back-to-top magnetic-btn" id="back-to-top" aria-label="Back to top" title="Back to top">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+      stroke-linecap="round" stroke-linejoin="round">
+      <line x1="12" y1="19" x2="12" y2="5" />
+      <polyline points="5 12 12 5 19 12" />
+    </svg>
+  </button>
 
   <!-- GSAP CDN Libraries -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>

@@ -31,7 +31,7 @@
      3. Magnetic Buttons Pull Effect
      ------------------------------------------- */
   if (isGsapAvailable) {
-    document.querySelectorAll('.magnetic-btn').forEach((btn) => {
+    document.querySelectorAll('.magnetic-btn, .about-highlight-pill').forEach((btn) => {
       btn.addEventListener('mousemove', (e) => {
         const rect = btn.getBoundingClientRect();
         const relX = e.clientX - (rect.left + rect.width / 2);
@@ -106,33 +106,70 @@
 
     /* Continuous Background Ambient SVG Floating Animation */
     gsap.to('.shape-1', {
-      y: 20,
-      x: -10,
-      rotation: 12,
-      duration: 5,
+      y: 22,
+      x: -12,
+      rotation: 14,
+      duration: 5.5,
       repeat: -1,
       yoyo: true,
       ease: 'sine.inOut'
     });
 
     gsap.to('.shape-2', {
-      y: -25,
-      x: 12,
-      rotation: -15,
-      duration: 7,
+      y: -28,
+      x: 15,
+      rotation: -18,
+      duration: 7.2,
       repeat: -1,
       yoyo: true,
       ease: 'sine.inOut'
     });
 
     gsap.to('.shape-3', {
-      scale: 1.15,
+      scale: 1.18,
       rotation: 90,
-      duration: 9,
+      duration: 9.5,
       repeat: -1,
       yoyo: true,
       ease: 'sine.inOut'
     });
+
+    gsap.to('.shape-4', {
+      y: -18,
+      x: -14,
+      rotation: 10,
+      duration: 6.8,
+      repeat: -1,
+      yoyo: true,
+      ease: 'sine.inOut'
+    });
+
+    gsap.to('.shape-5', {
+      rotation: 120,
+      scale: 1.1,
+      duration: 11,
+      repeat: -1,
+      yoyo: true,
+      ease: 'sine.inOut'
+    });
+
+    /* Interactive Mouse Parallax on Hero Shapes */
+    const heroSection = document.getElementById('hero');
+    if (heroSection) {
+      heroSection.addEventListener('mousemove', (e) => {
+        const { clientX, clientY } = e;
+        const centerX = window.innerWidth / 2;
+        const centerY = window.innerHeight / 2;
+        const deltaX = (clientX - centerX) / centerX;
+        const deltaY = (clientY - centerY) / centerY;
+
+        gsap.to('.shape-1', { x: deltaX * 30, y: deltaY * 20, duration: 1.2, ease: 'power2.out' });
+        gsap.to('.shape-2', { x: -deltaX * 35, y: -deltaY * 25, duration: 1.4, ease: 'power2.out' });
+        gsap.to('.shape-3', { x: deltaX * 20, y: deltaY * 30, duration: 1.6, ease: 'power2.out' });
+        gsap.to('.shape-4', { x: -deltaX * 40, y: deltaY * 20, duration: 1.3, ease: 'power2.out' });
+        gsap.to('.shape-5', { x: deltaX * 25, y: -deltaY * 30, duration: 1.5, ease: 'power2.out' });
+      });
+    }
   }
 
   /* -------------------------------------------
@@ -203,25 +240,28 @@
     });
 
     /* Skills / Tags Pop Entrance */
-    const tags = document.querySelectorAll('.project-card-tags .tag');
-    if (tags.length > 0) {
-      gsap.fromTo(tags,
-        { opacity: 0, scale: 0, y: 10 },
-        {
-          opacity: 1,
-          scale: 1,
-          y: 0,
-          duration: 0.5,
-          stagger: 0.06,
-          ease: 'back.out(2.2)',
-          scrollTrigger: {
-            trigger: '.projects-grid',
-            start: 'top 80%',
-            toggleActions: 'play none none none'
+    const tagContainers = document.querySelectorAll('.projects-grid, .skills-grid');
+    tagContainers.forEach((container) => {
+      const tags = container.querySelectorAll('.tag');
+      if (tags.length > 0) {
+        gsap.fromTo(tags,
+          { opacity: 0, scale: 0, y: 10 },
+          {
+            opacity: 1,
+            scale: 1,
+            y: 0,
+            duration: 0.5,
+            stagger: 0.05,
+            ease: 'back.out(2)',
+            scrollTrigger: {
+              trigger: container,
+              start: 'top 82%',
+              toggleActions: 'play none none none'
+            }
           }
-        }
-      );
-    }
+        );
+      }
+    });
 
     /* Footer Socials Elastic Stagger Entrance */
     const footerSocials = document.querySelectorAll('.footer-socials .social-link');
@@ -258,7 +298,7 @@
      6. Interactive 3D Card Tilt Mouse Effect
      ------------------------------------------- */
   if (isGsapAvailable) {
-    const tiltCards = document.querySelectorAll('.project-card, .practice-item, .notes-item');
+    const tiltCards = document.querySelectorAll('.project-card, .practice-item, .notes-item, .skills-card, .about-card-integrated');
 
     tiltCards.forEach((card) => {
       card.addEventListener('mousemove', (e) => {
@@ -430,5 +470,36 @@
   const yearSpan = document.getElementById('current-year');
   if (yearSpan) {
     yearSpan.textContent = new Date().getFullYear();
+  }
+
+  /* -------------------------------------------
+     12. Back to Top Button
+     ------------------------------------------- */
+  const backToTopBtn = document.getElementById('back-to-top');
+
+  function updateBackToTop() {
+    if (!backToTopBtn) return;
+    if (window.scrollY > 320) {
+      backToTopBtn.classList.add('visible');
+    } else {
+      backToTopBtn.classList.remove('visible');
+    }
+  }
+
+  if (backToTopBtn) {
+    window.addEventListener('scroll', updateBackToTop, { passive: true });
+    updateBackToTop();
+
+    backToTopBtn.addEventListener('click', function () {
+      if (isGsapAvailable && typeof ScrollToPlugin !== 'undefined') {
+        gsap.to(window, {
+          duration: 1.0,
+          scrollTo: { y: 0 },
+          ease: 'power3.inOut'
+        });
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    });
   }
 })();

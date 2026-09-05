@@ -2,29 +2,29 @@
    CSS VARIABLES & DESIGN TOKENS
    ============================================ */
 :root {
-  /* Colors — Warm monochromatic brown palette, no green */
-  --color-1: #e8d5c0;          /* soft beige — accents/highlights/tags */
-  --color-2: #f5ede3;          /* pale cream — secondary backgrounds */
-  --color-3: #faf6f1;          /* warm off-white — main page background */
-  --color-4: #f0e6d8;          /* light tan — card/section backgrounds */
-  --color-5: #b07c4f;          /* warm golden brown — buttons, links, hover, borders */
+  /* Colors — Minimalist Developer Slate Palette (single restrained slate-blue accent) */
+  --color-1: #1e222b;          /* subtle chip/tag surface & secondary container */
+  --color-2: #13161c;          /* alternating section background */
+  --color-3: #0f1115;          /* main page background (near-black slate) */
+  --color-4: #161920;          /* surface / card background */
+  --color-5: #7c9cbf;          /* restrained accent hue (slate blue) */
 
-  --color-text-primary: #3d2e22;     /* dark espresso — body text */
-  --color-text-secondary: #5c4a3a;   /* medium brown — secondary text */
-  --color-text-tertiary: #8c7b6b;    /* muted brown — tertiary/subtle text */
-  --color-text-on-accent: #faf6f1;   /* off-white text on brown buttons */
+  --color-text-primary: #e6e6e6;     /* soft off-white */
+  --color-text-secondary: #8a8f98;   /* desaturated gray */
+  --color-text-tertiary: #5a606b;    /* muted gray */
+  --color-text-on-accent: #0f1115;   /* dark text on solid accent button */
 
   /* Derived / semantic aliases */
   --color-bg: var(--color-3);
   --color-bg-alt: var(--color-2);
   --color-surface: var(--color-4);
-  --color-border: var(--color-5);
-  --color-border-light: #e2d4c4;
+  --color-border: #22262e;
+  --color-border-light: #22262e;
 
   --color-accent: var(--color-5);
-  --color-accent-hover: #96663c;
-  --color-accent-light: var(--color-4);
-  --color-accent-subtle: var(--color-2);
+  --color-accent-hover: #9ab9db;
+  --color-accent-light: rgba(124, 156, 191, 0.12);
+  --color-accent-subtle: rgba(124, 156, 191, 0.06);
 
   /* Typography */
   --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -72,12 +72,12 @@
   --radius-lg: 16px;
   --radius-full: 9999px;
 
-  /* Shadows — warm tones */
-  --shadow-xs: 0 1px 2px rgba(74, 55, 40, 0.05);
-  --shadow-sm: 0 1px 3px rgba(74, 55, 40, 0.07), 0 1px 2px rgba(74, 55, 40, 0.04);
-  --shadow-md: 0 4px 12px rgba(74, 55, 40, 0.08), 0 2px 4px rgba(74, 55, 40, 0.04);
-  --shadow-lg: 0 10px 30px rgba(74, 55, 40, 0.1), 0 4px 8px rgba(74, 55, 40, 0.05);
-  --shadow-xl: 0 20px 40px rgba(74, 55, 40, 0.12), 0 8px 16px rgba(74, 55, 40, 0.06);
+  /* Shadows — clean dark neutral tones */
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.25);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.35), 0 2px 4px rgba(0, 0, 0, 0.2);
+  --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.45), 0 4px 8px rgba(0, 0, 0, 0.25);
+  --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.55), 0 8px 16px rgba(0, 0, 0, 0.3);
 
   /* Transitions */
   --transition-fast: 0.15s ease;
@@ -214,7 +214,7 @@ h1, h2, h3, h4 {
   left: 0;
   right: 0;
   height: var(--nav-height);
-  background-color: rgba(250, 246, 241, 0.92);
+  background-color: rgba(15, 17, 21, 0.92);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid transparent;
@@ -337,29 +337,10 @@ h1, h2, h3, h4 {
   overflow: hidden;
 }
 
-/* Subtle decorative background element */
-.hero::before {
-  content: '';
-  position: absolute;
-  top: -200px;
-  right: -200px;
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, var(--color-1) 0%, transparent 70%);
-  opacity: 0.35;
-  pointer-events: none;
-}
-
+/* Subtle background decoration */
+.hero::before,
 .hero::after {
-  content: '';
-  position: absolute;
-  bottom: -150px;
-  left: -150px;
-  width: 400px;
-  height: 400px;
-  background: radial-gradient(circle, var(--color-2) 0%, transparent 70%);
-  opacity: 0.4;
-  pointer-events: none;
+  display: none;
 }
 
 .hero-content {
@@ -493,63 +474,163 @@ h1, h2, h3, h4 {
 }
 
 /* ============================================
-   ABOUT SECTION
+   ABOUT & EDUCATION SECTION
    ============================================ */
 .about {
+  background-color: var(--color-2);
+  position: relative;
+  overflow: hidden;
+}
+
+.about-card-integrated {
   background-color: var(--color-4);
-}
-
-.about-content {
-  max-width: 720px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-3xl);
+  max-width: 860px;
   margin: 0 auto;
-  text-align: center;
-}
-
-.about-avatar {
-  width: 140px;
-  height: 140px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin: 0 auto var(--space-2xl);
-  border: 4px solid var(--color-1);
   box-shadow: var(--shadow-md);
-  transition: transform var(--transition-base), box-shadow var(--transition-base);
+  transition: transform var(--transition-base),
+              box-shadow var(--transition-base),
+              border-color var(--transition-base);
 }
 
-.about-avatar:hover {
-  transform: scale(1.04);
+.about-card-integrated:hover {
+  border-color: var(--color-accent);
   box-shadow: var(--shadow-lg);
+  transform: translateY(-4px);
 }
 
-.about-text {
+.about-text-content {
+  margin-bottom: var(--space-2xl);
+}
+
+.about-paragraph {
   font-size: var(--font-size-md);
   color: var(--color-text-secondary);
   line-height: var(--line-height-relaxed);
-  margin-bottom: var(--space-lg);
+  margin-bottom: var(--space-md);
 }
 
-.about-resume-link {
+.about-paragraph:last-child {
+  margin-bottom: 0;
+}
+
+.about-paragraph strong {
+  color: var(--color-text-primary);
+  font-weight: var(--font-weight-semibold);
+}
+
+.about-highlights-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  padding-top: var(--space-xl);
+  border-top: 1px solid var(--color-border);
+}
+
+.about-highlight-pill {
   display: inline-flex;
   align-items: center;
   gap: var(--space-sm);
+  background-color: var(--color-1);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  padding: 8px 16px;
   font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-semibold);
-  color: var(--color-accent);
-  letter-spacing: var(--letter-spacing-wide);
-  text-transform: uppercase;
-  padding: var(--space-sm) 0;
-  border-bottom: 2px solid transparent;
-  transition: border-color var(--transition-base), color var(--transition-base);
+  color: var(--color-text-secondary);
+  transition: transform var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast);
 }
 
-.about-resume-link:hover {
-  border-bottom-color: var(--color-accent);
-  color: var(--color-accent-hover);
+.about-highlight-pill strong {
+  color: var(--color-text-primary);
+  font-weight: var(--font-weight-medium);
 }
 
-.about-resume-link svg {
+.about-highlight-pill:hover {
+  transform: translateY(-2px);
+  border-color: var(--color-accent);
+  color: var(--color-text-primary);
+}
+
+.about-highlight-pill svg {
   width: 16px;
   height: 16px;
+  color: var(--color-accent);
+  flex-shrink: 0;
+}
+
+/* ============================================
+   SKILLS SECTION
+   ============================================ */
+.skills {
+  background-color: var(--color-3);
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: var(--space-xl);
+}
+
+.skills-card {
+  background-color: var(--color-4);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--transition-base),
+              box-shadow var(--transition-base),
+              border-color var(--transition-base);
+}
+
+.skills-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-accent);
+}
+
+.skills-card-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  margin-bottom: var(--space-lg);
+}
+
+.skills-card-icon {
+  width: 38px;
+  height: 38px;
+  background-color: var(--color-1);
+  color: var(--color-accent);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.skills-card-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.skills-card-title {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+}
+
+.skills-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+.tag-placeholder {
+  border-style: dashed;
+  color: var(--color-text-tertiary);
+  background-color: transparent;
 }
 
 /* ============================================
@@ -566,8 +647,8 @@ h1, h2, h3, h4 {
 }
 
 .project-card {
-  background-color: var(--color-3);
-  border: 1px solid var(--color-border-light);
+  background-color: var(--color-4);
+  border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   padding: var(--space-2xl);
   cursor: pointer;
@@ -602,7 +683,7 @@ h1, h2, h3, h4 {
   width: 44px;
   height: 44px;
   background-color: var(--color-1);
-  color: var(--color-text-primary);
+  color: var(--color-accent);
   border-radius: var(--radius-md);
   display: flex;
   align-items: center;
@@ -633,7 +714,7 @@ h1, h2, h3, h4 {
 
 .project-card-link:hover {
   color: var(--color-accent);
-  background-color: var(--color-4);
+  background-color: var(--color-1);
 }
 
 .project-card-link svg {
@@ -669,16 +750,17 @@ h1, h2, h3, h4 {
   font-weight: var(--font-weight-medium);
   color: var(--color-text-primary);
   background-color: var(--color-1);
+  border: 1px solid var(--color-border);
   border-radius: var(--radius-full);
   letter-spacing: var(--letter-spacing-wide);
-  transition: background-color var(--transition-base), color var(--transition-base);
+  transition: background-color var(--transition-base), color var(--transition-base), border-color var(--transition-base);
 }
 
 /* ============================================
    PRACTICE / LEARNING SECTION
    ============================================ */
 .practice {
-  background-color: var(--color-4);
+  background-color: var(--color-3);
 }
 
 .practice-list {
@@ -695,8 +777,8 @@ h1, h2, h3, h4 {
   justify-content: space-between;
   gap: var(--space-md);
   padding: var(--space-lg) var(--space-xl);
-  background-color: var(--color-3);
-  border: 1px solid var(--color-border-light);
+  background-color: var(--color-4);
+  border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   cursor: pointer;
   transition: border-color var(--transition-base),
@@ -741,7 +823,7 @@ h1, h2, h3, h4 {
 
 .practice-item-link:hover {
   color: var(--color-accent);
-  background-color: var(--color-4);
+  background-color: var(--color-1);
 }
 
 .practice-item-link svg {
@@ -770,8 +852,8 @@ h1, h2, h3, h4 {
   justify-content: space-between;
   gap: var(--space-md);
   padding: var(--space-lg) var(--space-xl);
-  background-color: var(--color-3);
-  border: 1px solid var(--color-border-light);
+  background-color: var(--color-4);
+  border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   cursor: pointer;
   transition: border-color var(--transition-base),
@@ -817,7 +899,7 @@ h1, h2, h3, h4 {
 
 .notes-item-link:hover {
   color: var(--color-accent);
-  background-color: var(--color-4);
+  background-color: var(--color-1);
 }
 
 .notes-item-link svg {
@@ -829,8 +911,8 @@ h1, h2, h3, h4 {
    FOOTER / CONTACT
    ============================================ */
 .footer {
-  background-color: var(--color-4);
-  border-top: 1px solid var(--color-border-light);
+  background-color: var(--color-3);
+  border-top: 1px solid var(--color-border);
   padding: var(--space-3xl) 0;
   min-height: 65vh;
   display: flex;
@@ -875,8 +957,8 @@ h1, h2, h3, h4 {
   align-items: center;
   justify-content: center;
   color: var(--color-text-secondary);
-  background-color: var(--color-3);
-  border: 1px solid var(--color-border-light);
+  background-color: var(--color-4);
+  border: 1px solid var(--color-border);
   border-radius: 50%;
   transition: all var(--transition-base);
 }
@@ -905,6 +987,53 @@ h1, h2, h3, h4 {
   font-size: var(--font-size-xs);
   color: var(--color-text-tertiary);
   letter-spacing: var(--letter-spacing-wide);
+}
+
+/* ============================================
+   BACK TO TOP BUTTON
+   ============================================ */
+.back-to-top {
+  position: fixed;
+  bottom: var(--space-xl);
+  right: var(--space-xl);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: var(--color-4);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 900;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px);
+  transition: opacity var(--transition-base),
+              visibility var(--transition-base),
+              transform var(--transition-base),
+              border-color var(--transition-base),
+              color var(--transition-base),
+              background-color var(--transition-base);
+  box-shadow: var(--shadow-md);
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.back-to-top:hover {
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+  background-color: var(--color-1);
+}
+
+.back-to-top svg {
+  width: 18px;
+  height: 18px;
 }
 
 /* ============================================
@@ -937,7 +1066,8 @@ h1, h2, h3, h4 {
     flex-direction: column;
     justify-content: center;
     gap: var(--space-2xl);
-    background-color: var(--color-3);
+    background-color: var(--color-4);
+    border-left: 1px solid var(--color-border);
     box-shadow: var(--shadow-xl);
     transform: translateX(100%);
     transition: transform var(--transition-base);
@@ -956,7 +1086,7 @@ h1, h2, h3, h4 {
   .nav-overlay {
     position: fixed;
     inset: 0;
-    background-color: rgba(74, 55, 40, 0.2);
+    background-color: rgba(0, 0, 0, 0.6);
     opacity: 0;
     visibility: hidden;
     transition: opacity var(--transition-base), visibility var(--transition-base);
@@ -1013,6 +1143,11 @@ h1, h2, h3, h4 {
   .notes-item-link {
     align-self: flex-end;
   }
+
+  .back-to-top {
+    bottom: var(--space-lg);
+    right: var(--space-lg);
+  }
 }
 
 /* ============================================
@@ -1037,11 +1172,8 @@ h1, h2, h3, h4 {
     font-size: var(--font-size-xl);
   }
 
-  .about-avatar {
-    width: 110px;
-    height: 110px;
-  }
-
+  .about-card,
+  .skills-card,
   .project-card {
     padding: var(--space-xl);
   }
@@ -1067,24 +1199,27 @@ h1, h2, h3, h4 {
   left: 0;
   width: 100%;
   height: 3px;
-  background: linear-gradient(90deg, var(--color-5), #d49563, var(--color-1));
+  background-color: var(--color-accent);
   transform-origin: left center;
   transform: scaleX(0);
   z-index: 1002;
   pointer-events: none;
 }
 
-
 /* 3D Perspective Containers */
 .projects-grid,
 .practice-list,
-.notes-list {
+.notes-list,
+.skills-grid,
+.about-cards-grid {
   perspective: 1000px;
 }
 
 .project-card,
 .practice-item,
-.notes-item {
+.notes-item,
+.skills-card,
+.about-card {
   transform-style: preserve-3d;
   will-change: transform;
 }
@@ -1117,6 +1252,16 @@ h1, h2, h3, h4 {
 .shape-3 {
   bottom: 12%;
   left: 12%;
+}
+
+.shape-4 {
+  top: 22%;
+  right: 12%;
+}
+
+.shape-5 {
+  bottom: 20%;
+  right: 22%;
 }
 
 /* Micro-animations & magnetic buttons */
