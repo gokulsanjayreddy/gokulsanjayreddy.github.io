@@ -1,182 +1,84 @@
 /* ============================================
-   PORTFOLIO — Main GSAP & Interactivity Script
+   PORTFOLIO — Main Interactivity & Motion
+   Gokul Sanjay Reddy Chatrala — Algorithmic Minimalism
    ============================================ */
 (function () {
   'use strict';
 
   /* -------------------------------------------
-     1. Register GSAP Plugins & Fallback Check
+     1. Accessibility & Feature Check
      ------------------------------------------- */
-  const isGsapAvailable = typeof gsap !== 'undefined';
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const isGsapAvailable = typeof gsap !== 'undefined' && !prefersReducedMotion;
 
   if (isGsapAvailable) {
     if (typeof ScrollTrigger !== 'undefined') gsap.registerPlugin(ScrollTrigger);
-    if (typeof TextPlugin !== 'undefined') gsap.registerPlugin(TextPlugin);
     if (typeof ScrollToPlugin !== 'undefined') gsap.registerPlugin(ScrollToPlugin);
   }
 
   /* -------------------------------------------
-     2. DOM References
+     2. DOM Elements
      ------------------------------------------- */
-  const navbar = document.querySelector('.navbar');
-  const navToggle = document.querySelector('.nav-toggle');
-  const navLinks = document.querySelector('.nav-links');
-  const navOverlay = document.querySelector('.nav-overlay');
+  const navbar = document.getElementById('navbar');
+  const navToggle = document.getElementById('nav-toggle');
+  const navLinks = document.getElementById('nav-links');
+  const navOverlay = document.getElementById('nav-overlay');
   const navAnchors = document.querySelectorAll('.nav-link');
-  const sections = document.querySelectorAll('section[id], footer[id]');
+  const sections = document.querySelectorAll('header[id], section[id], footer[id]');
   const progressBar = document.getElementById('scroll-progress-bar');
   const revealElements = document.querySelectorAll('.reveal');
+  const backToTopBtn = document.getElementById('back-to-top');
 
   /* -------------------------------------------
-     3. Magnetic Buttons Pull Effect
+     3. Orchestrated Page-Load Sequence (GSAP)
      ------------------------------------------- */
   if (isGsapAvailable) {
-    document.querySelectorAll('.magnetic-btn, .about-highlight-pill').forEach((btn) => {
-      btn.addEventListener('mousemove', (e) => {
-        const rect = btn.getBoundingClientRect();
-        const relX = e.clientX - (rect.left + rect.width / 2);
-        const relY = e.clientY - (rect.top + rect.height / 2);
-
-        gsap.to(btn, {
-          x: relX * 0.35,
-          y: relY * 0.35,
-          duration: 0.3,
-          ease: 'power2.out'
-        });
-      });
-
-      btn.addEventListener('mouseleave', () => {
-        gsap.to(btn, {
-          x: 0,
-          y: 0,
-          duration: 0.6,
-          ease: 'elastic.out(1.2, 0.4)'
-        });
-      });
+    const heroTl = gsap.timeline({
+      defaults: { ease: 'power3.out' }
     });
-  }
 
-  /* -------------------------------------------
-     4. GSAP Hero Entrance Timeline & Floating SVGs
-     ------------------------------------------- */
-  if (isGsapAvailable) {
-    const heroTl = gsap.timeline({ defaults: { ease: 'power3.out' } });
-
-    /* Greeting Reveal */
-    heroTl.fromTo('#hero-greeting', 
-      { opacity: 0, y: 25 },
-      { opacity: 1, y: 0, duration: 0.7 }
-    );
-
-    /* Title Scale/Pop Reveal */
-    heroTl.fromTo('#hero-name',
-      { opacity: 0, y: 35, scale: 0.95 },
-      { opacity: 1, y: 0, scale: 1, duration: 0.9, ease: 'back.out(1.5)' },
-      '-=0.4'
-    );
-
-    /* Tagline Typewriter / Text Scramble */
-    const taglineEl = document.getElementById('hero-tagline');
-    if (taglineEl && typeof TextPlugin !== 'undefined') {
-      const taglineText = taglineEl.textContent;
-      taglineEl.textContent = '';
-      heroTl.to(taglineEl, {
-        opacity: 1,
-        duration: 0.3
-      }, '-=0.3');
-      heroTl.to(taglineEl, {
-        text: taglineText,
-        duration: 2.0,
-        ease: 'none'
-      });
-    } else {
-      heroTl.fromTo('#hero-tagline',
-        { opacity: 0, y: 25 },
-        { opacity: 1, y: 0, duration: 0.8 },
+    heroTl
+      .fromTo('#hero-greeting',
+        { opacity: 0, y: 16 },
+        { opacity: 1, y: 0, duration: 0.5, delay: 0.1 }
+      )
+      .fromTo('#hero-name',
+        { opacity: 0, y: 24 },
+        { opacity: 1, y: 0, duration: 0.7 },
+        '-=0.3'
+      )
+      .fromTo('#hero-tagline',
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, duration: 0.6 },
+        '-=0.35'
+      )
+      .fromTo('.hero-cta .btn',
+        { opacity: 0, y: 16 },
+        { opacity: 1, y: 0, duration: 0.5, stagger: 0.1 },
         '-=0.3'
       );
-    }
 
-    /* CTA Buttons Elastic Stagger Entrance */
-    heroTl.fromTo('.hero-cta .btn',
-      { opacity: 0, y: 30, scale: 0.88 },
-      { opacity: 1, y: 0, scale: 1, duration: 0.8, stagger: 0.15, ease: 'back.out(1.7)' },
-      '-=0.5'
-    );
-
-    /* Continuous Background Ambient SVG Floating Animation */
-    gsap.to('.shape-1', {
-      y: 22,
-      x: -12,
-      rotation: 14,
-      duration: 5.5,
-      repeat: -1,
-      yoyo: true,
-      ease: 'sine.inOut'
-    });
-
-    gsap.to('.shape-2', {
-      y: -28,
-      x: 15,
-      rotation: -18,
-      duration: 7.2,
-      repeat: -1,
-      yoyo: true,
-      ease: 'sine.inOut'
-    });
-
-    gsap.to('.shape-3', {
-      scale: 1.18,
-      rotation: 90,
-      duration: 9.5,
-      repeat: -1,
-      yoyo: true,
-      ease: 'sine.inOut'
-    });
-
-    gsap.to('.shape-4', {
-      y: -18,
-      x: -14,
-      rotation: 10,
-      duration: 6.8,
-      repeat: -1,
-      yoyo: true,
-      ease: 'sine.inOut'
-    });
-
-    gsap.to('.shape-5', {
-      rotation: 120,
-      scale: 1.1,
-      duration: 11,
-      repeat: -1,
-      yoyo: true,
-      ease: 'sine.inOut'
-    });
-
-    /* Interactive Mouse Parallax on Hero Shapes */
+    /* Restrained, subtle geometric node parallax on mouse movement */
     const heroSection = document.getElementById('hero');
     if (heroSection) {
       heroSection.addEventListener('mousemove', (e) => {
         const { clientX, clientY } = e;
-        const centerX = window.innerWidth / 2;
-        const centerY = window.innerHeight / 2;
-        const deltaX = (clientX - centerX) / centerX;
-        const deltaY = (clientY - centerY) / centerY;
+        const deltaX = (clientX - window.innerWidth / 2) / (window.innerWidth / 2);
+        const deltaY = (clientY - window.innerHeight / 2) / (window.innerHeight / 2);
 
-        gsap.to('.shape-1', { x: deltaX * 30, y: deltaY * 20, duration: 1.2, ease: 'power2.out' });
-        gsap.to('.shape-2', { x: -deltaX * 35, y: -deltaY * 25, duration: 1.4, ease: 'power2.out' });
-        gsap.to('.shape-3', { x: deltaX * 20, y: deltaY * 30, duration: 1.6, ease: 'power2.out' });
-        gsap.to('.shape-4', { x: -deltaX * 40, y: deltaY * 20, duration: 1.3, ease: 'power2.out' });
-        gsap.to('.shape-5', { x: deltaX * 25, y: -deltaY * 30, duration: 1.5, ease: 'power2.out' });
-      });
+        gsap.to('.shape-1', { x: deltaX * 12, y: deltaY * 10, duration: 1.4, ease: 'power1.out' });
+        gsap.to('.shape-2', { x: -deltaX * 14, y: -deltaY * 12, duration: 1.6, ease: 'power1.out' });
+        gsap.to('.shape-3', { x: deltaX * 8, y: deltaY * 14, duration: 1.5, ease: 'power1.out' });
+        gsap.to('.shape-4', { x: -deltaX * 16, y: deltaY * 8, duration: 1.4, ease: 'power1.out' });
+        gsap.to('.shape-5', { x: deltaX * 10, y: -deltaY * 12, duration: 1.6, ease: 'power1.out' });
+      }, { passive: true });
     }
   }
 
   /* -------------------------------------------
-     5. ScrollTrigger Animations & Progress Bar
+     4. ScrollTrigger & Scroll Interactions
      ------------------------------------------- */
   if (isGsapAvailable && typeof ScrollTrigger !== 'undefined') {
-
     /* Top Scroll Progress Bar */
     if (progressBar) {
       gsap.to(progressBar, {
@@ -191,11 +93,11 @@
       });
     }
 
-    /* Navbar backdrop blur & shrink effect */
+    /* Navbar styling on scroll */
     ScrollTrigger.create({
-      start: 'top -30',
+      start: 'top -20',
       onUpdate: (self) => {
-        if (self.direction === 1 || window.scrollY > 30) {
+        if (self.direction === 1 || window.scrollY > 20) {
           navbar.classList.add('scrolled');
         } else {
           navbar.classList.remove('scrolled');
@@ -203,156 +105,34 @@
       }
     });
 
-    /* Global GSAP Scroll Reveal for ALL .reveal elements (headers, cards, footer) */
+    /* Section entry reveals */
     revealElements.forEach((el) => {
-      gsap.fromTo(el,
-        { opacity: 0, y: 35 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.8,
-          ease: 'power3.out',
-          scrollTrigger: {
-            trigger: el,
-            start: 'top 88%',
-            onEnter: () => el.classList.add('revealed'),
-            toggleActions: 'play none none none'
-          }
-        }
-      );
+      ScrollTrigger.create({
+        trigger: el,
+        start: 'top 88%',
+        once: true,
+        onEnter: () => el.classList.add('revealed')
+      });
     });
-
-    /* Section Title Underline Draw & Pop */
-    document.querySelectorAll('.section-title').forEach((title) => {
-      gsap.fromTo(title,
-        { scale: 0.95 },
-        {
-          scale: 1,
-          duration: 0.6,
-          ease: 'back.out(1.5)',
-          scrollTrigger: {
-            trigger: title,
-            start: 'top 88%',
-            toggleActions: 'play none none none'
-          }
-        }
-      );
-    });
-
-    /* Skills / Tags Pop Entrance */
-    const tagContainers = document.querySelectorAll('.projects-grid, .skills-grid');
-    tagContainers.forEach((container) => {
-      const tags = container.querySelectorAll('.tag');
-      if (tags.length > 0) {
-        gsap.fromTo(tags,
-          { opacity: 0, scale: 0, y: 10 },
-          {
-            opacity: 1,
-            scale: 1,
-            y: 0,
-            duration: 0.5,
-            stagger: 0.05,
-            ease: 'back.out(2)',
-            scrollTrigger: {
-              trigger: container,
-              start: 'top 82%',
-              toggleActions: 'play none none none'
-            }
-          }
-        );
-      }
-    });
-
-    /* Footer Socials Elastic Stagger Entrance */
-    const footerSocials = document.querySelectorAll('.footer-socials .social-link');
-    if (footerSocials.length > 0) {
-      gsap.fromTo(footerSocials,
-        { opacity: 0, scale: 0.4, y: 25 },
-        {
-          opacity: 1,
-          scale: 1,
-          y: 0,
-          duration: 0.7,
-          stagger: 0.08,
-          ease: 'back.out(2)',
-          scrollTrigger: {
-            trigger: '.footer',
-            start: 'top 85%',
-            toggleActions: 'play none none none'
-          }
-        }
-      );
-    }
-
-    /* Refresh ScrollTrigger after setup to calculate exact positions */
-    ScrollTrigger.refresh();
-
   } else {
-    /* Fallback if GSAP is disabled/loading: instantly reveal all elements */
-    revealElements.forEach((el) => {
-      el.classList.add('revealed');
-    });
+    /* Fallback if reduced motion or GSAP not loaded */
+    revealElements.forEach((el) => el.classList.add('revealed'));
   }
 
   /* -------------------------------------------
-     6. Interactive 3D Card Tilt Mouse Effect
-     ------------------------------------------- */
-  if (isGsapAvailable) {
-    const tiltCards = document.querySelectorAll('.project-card, .practice-item, .notes-item, .skills-card, .about-card-integrated');
-
-    tiltCards.forEach((card) => {
-      card.addEventListener('mousemove', (e) => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
-
-        const rotateX = ((y - centerY) / centerY) * -10; // Max 10 deg tilt
-        const rotateY = ((x - centerX) / centerX) * 10;
-
-        gsap.to(card, {
-          rotateX: rotateX,
-          rotateY: rotateY,
-          scale: 1.025,
-          duration: 0.3,
-          ease: 'power1.out',
-          transformPerspective: 1000
-        });
-      });
-
-      card.addEventListener('mouseleave', () => {
-        gsap.to(card, {
-          rotateX: 0,
-          rotateY: 0,
-          scale: 1,
-          duration: 0.6,
-          ease: 'power2.out'
-        });
-      });
-    });
-  }
-
-  /* -------------------------------------------
-     7. Mobile Navigation Toggle
+     5. Mobile Navigation
      ------------------------------------------- */
   function openMobileNav() {
+    if (!navToggle || !navLinks || !navOverlay) return;
     navToggle.classList.add('open');
     navLinks.classList.add('open');
     navOverlay.classList.add('visible');
     document.body.style.overflow = 'hidden';
     navToggle.setAttribute('aria-expanded', 'true');
-
-    if (isGsapAvailable) {
-      gsap.fromTo('.nav-links li',
-        { opacity: 0, x: 30 },
-        { opacity: 1, x: 0, duration: 0.4, stagger: 0.08, ease: 'power2.out' }
-      );
-    }
   }
 
   function closeMobileNav() {
+    if (!navToggle || !navLinks || !navOverlay) return;
     navToggle.classList.remove('open');
     navLinks.classList.remove('open');
     navOverlay.classList.remove('visible');
@@ -361,7 +141,7 @@
   }
 
   if (navToggle) {
-    navToggle.addEventListener('click', function () {
+    navToggle.addEventListener('click', () => {
       if (navLinks.classList.contains('open')) {
         closeMobileNav();
       } else {
@@ -374,16 +154,16 @@
     navOverlay.addEventListener('click', closeMobileNav);
   }
 
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape' && navLinks.classList.contains('open')) {
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && navLinks && navLinks.classList.contains('open')) {
       closeMobileNav();
     }
   });
 
   /* -------------------------------------------
-     8. GSAP Smooth Navigation Scrolling
+     6. Smooth Navigation Scrolling
      ------------------------------------------- */
-  navAnchors.forEach(function (anchor) {
+  navAnchors.forEach((anchor) => {
     anchor.addEventListener('click', function (e) {
       e.preventDefault();
       const targetId = this.getAttribute('href');
@@ -392,12 +172,13 @@
       if (targetEl) {
         if (isGsapAvailable && typeof ScrollToPlugin !== 'undefined') {
           gsap.to(window, {
-            duration: 1.2,
-            scrollTo: { y: targetEl, offsetY: 64 },
-            ease: 'power3.inOut'
+            duration: 0.8,
+            scrollTo: { y: targetEl, offsetY: 72 },
+            ease: 'power2.inOut'
           });
         } else {
-          targetEl.scrollIntoView({ behavior: 'smooth' });
+          const targetPosition = targetEl.getBoundingClientRect().top + window.scrollY - 72;
+          window.scrollTo({ top: targetPosition, behavior: 'smooth' });
         }
       }
 
@@ -406,7 +187,7 @@
   });
 
   /* -------------------------------------------
-     9. Clickable Repository Cards & Items
+     7. Interactive Card Links with Keyboard Access
      ------------------------------------------- */
   const clickableItems = document.querySelectorAll('[data-href]');
 
@@ -417,15 +198,13 @@
     }
   }
 
-  clickableItems.forEach(function (item) {
-    item.addEventListener('click', function (e) {
-      if (e.target.closest('a')) {
-        return;
-      }
+  clickableItems.forEach((item) => {
+    item.addEventListener('click', (e) => {
+      if (e.target.closest('a')) return;
       openItemLink(item);
     });
 
-    item.addEventListener('keydown', function (e) {
+    item.addEventListener('keydown', (e) => {
       if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault();
         openItemLink(item);
@@ -434,30 +213,34 @@
   });
 
   /* -------------------------------------------
-     10. Active Nav Link Scroll Highlighting
+     8. Active Navigation Highlighting on Scroll
      ------------------------------------------- */
   function highlightActiveNav() {
-    const pageHeight = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
-    const scrollBottom = window.scrollY + window.innerHeight;
-    const isAtPageEnd = scrollBottom >= pageHeight - 80;
-    const marker = window.scrollY + navbar.offsetHeight + Math.round(window.innerHeight * 0.35);
-    let activeSectionId = sections[0] ? sections[0].getAttribute('id') : null;
+    const scrollPos = window.scrollY + 100;
+    let activeId = null;
 
-    sections.forEach(function (section) {
-      const sectionTop = section.offsetTop;
-      const sectionId = section.getAttribute('id');
+    sections.forEach((section) => {
+      const top = section.offsetTop;
+      const height = section.offsetHeight;
+      const id = section.getAttribute('id');
 
-      if (marker >= sectionTop) {
-        activeSectionId = sectionId;
+      if (scrollPos >= top && scrollPos < top + height) {
+        activeId = id;
       }
     });
 
-    if (isAtPageEnd && sections.length > 0) {
-      activeSectionId = sections[sections.length - 1].getAttribute('id');
+    // Check if bottom of page reached
+    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 50) {
+      activeId = 'contact';
     }
 
-    navAnchors.forEach(function (link) {
-      link.classList.toggle('active', link.getAttribute('href') === '#' + activeSectionId);
+    navAnchors.forEach((link) => {
+      const href = link.getAttribute('href');
+      if (href === '#' + activeId) {
+        link.classList.add('active');
+      } else {
+        link.classList.remove('active');
+      }
     });
   }
 
@@ -465,21 +248,11 @@
   highlightActiveNav();
 
   /* -------------------------------------------
-     11. Dynamic Copyright Year
+     9. Back to Top Button
      ------------------------------------------- */
-  const yearSpan = document.getElementById('current-year');
-  if (yearSpan) {
-    yearSpan.textContent = new Date().getFullYear();
-  }
-
-  /* -------------------------------------------
-     12. Back to Top Button
-     ------------------------------------------- */
-  const backToTopBtn = document.getElementById('back-to-top');
-
   function updateBackToTop() {
     if (!backToTopBtn) return;
-    if (window.scrollY > 320) {
+    if (window.scrollY > 350) {
       backToTopBtn.classList.add('visible');
     } else {
       backToTopBtn.classList.remove('visible');
@@ -490,16 +263,24 @@
     window.addEventListener('scroll', updateBackToTop, { passive: true });
     updateBackToTop();
 
-    backToTopBtn.addEventListener('click', function () {
+    backToTopBtn.addEventListener('click', () => {
       if (isGsapAvailable && typeof ScrollToPlugin !== 'undefined') {
         gsap.to(window, {
-          duration: 1.0,
+          duration: 0.8,
           scrollTo: { y: 0 },
-          ease: 'power3.inOut'
+          ease: 'power2.inOut'
         });
       } else {
         window.scrollTo({ top: 0, behavior: 'smooth' });
       }
     });
+  }
+
+  /* -------------------------------------------
+     10. Dynamic Copyright Year
+     ------------------------------------------- */
+  const yearSpan = document.getElementById('current-year');
+  if (yearSpan) {
+    yearSpan.textContent = new Date().getFullYear();
   }
 })();
