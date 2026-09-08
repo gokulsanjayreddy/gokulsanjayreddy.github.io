@@ -18,11 +18,11 @@
     content="Explore projects, skills, and coursework of Gokul Sanjay Reddy Chatrala, Data Science & AI at IIT Bhilai." />
   <meta property="og:type" content="website" />
 
-  <!-- Google Fonts: Cormorant Garamond & Inter -->
+  <!-- Google Fonts: Playfair Display & Source Sans 3 -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600&family=Source+Sans+3:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap"
     rel="stylesheet" />
 
   <!-- Stylesheet -->
@@ -58,37 +58,16 @@
 
   <!-- ========== HERO ========== -->
   <header class="hero" id="hero">
-    <!-- Geometric Background Vector Nodes (Subtle, Algorithmic) -->
-    <div class="hero-bg-shapes" aria-hidden="true">
-      <svg class="floating-shape shape-1" width="130" height="130" viewBox="0 0 100 100" fill="none">
-        <circle cx="50" cy="50" r="42" stroke="var(--border)" stroke-width="1.5" stroke-dasharray="6 6" />
-        <circle cx="50" cy="50" r="16" stroke="var(--accent)" stroke-width="1" />
-      </svg>
-      <svg class="floating-shape shape-2" width="150" height="150" viewBox="0 0 100 100" fill="none">
-        <polygon points="50,12 88,88 12,88" stroke="var(--border)" stroke-width="1.5" />
-        <circle cx="50" cy="50" r="6" fill="var(--accent)" opacity="0.5" />
-      </svg>
-      <svg class="floating-shape shape-3" width="100" height="100" viewBox="0 0 100 100" fill="none">
-        <rect x="22" y="22" width="56" height="56" stroke="var(--border)" stroke-width="1.5"
-          transform="rotate(45 50 50)" />
-      </svg>
-      <svg class="floating-shape shape-4" width="120" height="120" viewBox="0 0 100 100" fill="none">
-        <line x1="20" y1="30" x2="50" y2="70" stroke="var(--border)" stroke-width="1" stroke-dasharray="4 4" />
-        <line x1="80" y1="30" x2="50" y2="70" stroke="var(--border)" stroke-width="1" stroke-dasharray="4 4" />
-        <circle cx="20" cy="30" r="5" stroke="var(--accent)" stroke-width="1.5" />
-        <circle cx="80" cy="30" r="5" stroke="var(--accent)" stroke-width="1.5" />
-        <circle cx="50" cy="70" r="6" fill="var(--accent)" opacity="0.4" />
-      </svg>
-      <svg class="floating-shape shape-5" width="110" height="110" viewBox="0 0 100 100" fill="none">
-        <polygon points="50,6 90,28 90,72 50,94 10,72 10,28" stroke="var(--border)" stroke-width="1.5" stroke-dasharray="8 4" />
-      </svg>
-    </div>
-
     <div class="container">
       <div class="hero-content">
-        <p class="hero-greeting" id="hero-greeting">Hey, I'm</p>
         <h1 class="hero-name" id="hero-name">Gokul Sanjay</h1>
-        <p class="hero-tagline" id="hero-tagline">2nd year undergraduate at IIT Bhilai focused on machine learning systems, data-driven applications, and automating real-world workflows.</p>
+        <div class="hero-rule" id="hero-rule" aria-hidden="true"></div>
+
+        <div class="hero-facts">
+          <span class="hero-fact">machine learning systems</span>
+          <span class="hero-fact">data engineering</span>
+          <span class="hero-fact">automation</span>
+        </div>
 
         <div class="hero-cta">
           <a href="assets/resume.pdf" download class="btn btn-outline" id="cta-resume">
@@ -117,6 +96,15 @@
             LinkedIn
           </a>
         </div>
+
+        <div class="terminal" role="img" aria-label="Terminal output from Gokul Sanjay's machine">
+          <p class="terminal-line"><span class="t-prompt">$</span> whoami</p>
+          <p class="terminal-line t-out">gokulsanjay | b.tech data science &amp; ai, iit bhilai</p>
+          <p class="terminal-line"><span class="t-prompt">$</span> cat focus.txt</p>
+          <p class="terminal-line t-out">ml systems, data pipelines, automation</p>
+          <p class="terminal-line"><span class="t-prompt">$</span> run portfolio --latest</p>
+          <p class="terminal-line t-out">crop-recommendation, autoinsight, concepts-of-physics</p>
+        </div>
       </div>
     </div>
   </header>
@@ -130,7 +118,7 @@
         <p class="section-subtitle">Background, academic focus, and what I build.</p>
       </div>
 
-      <div class="about-card-integrated reveal reveal-delay-1">
+      <div class="about-content reveal reveal-delay-1">
         <div class="about-text-content">
           <p class="about-paragraph">
             I am a 2nd year undergraduate student pursuing my <strong>B.Tech in Data Science and Artificial Intelligence</strong> at the <strong>Indian Institute of Technology (IIT) Bhilai</strong>, graduating in <strong>2029</strong> with a current academic standing of <strong>8.65 CGPA</strong>.
@@ -139,6 +127,10 @@
             Based in Raipur, Chhattisgarh, I focus on designing machine learning systems, data engineering pipelines, and building automation tools that turn complex models into reliable, real-world applications.
           </p>
         </div>
+
+        <blockquote class="about-quote">
+          <p>&ldquo;Turning complex models into reliable, real-world applications.&rdquo;</p>
+        </blockquote>
 
         <div class="about-highlights-row">
           <div class="about-highlight-pill">
@@ -175,6 +167,8 @@
       </div>
     </div>
   </section>
+
+  <div class="section-rule" aria-hidden="true"></div>
 
 
   <!-- ========== SKILLS ========== -->
@@ -273,6 +267,8 @@
     </div>
   </section>
 
+  <div class="section-rule" aria-hidden="true"></div>
+
 
   <!-- ========== PROJECTS ========== -->
   <section class="projects section" id="projects">
@@ -284,7 +280,7 @@
 
       <div class="projects-grid">
 
-        <!-- ── Crop Recommendation System ── -->
+        <!-- Crop Recommendation System -->
         <div class="project-card reveal reveal-delay-1"
           data-href="https://github.com/gokulsanjayreddy/crop-recommendation-system" role="link" tabindex="0">
           <div class="project-card-header">
@@ -323,7 +319,7 @@
           </div>
         </div>
 
-        <!-- ── AutoInsight ── -->
+        <!-- AutoInsight -->
         <div class="project-card reveal reveal-delay-2"
           data-href="https://github.com/gokulsanjayreddy/AutoInsight" role="link" tabindex="0">
           <div class="project-card-header">
@@ -356,7 +352,7 @@
           </div>
         </div>
 
-        <!-- ── Concepts of Physics ── -->
+        <!-- Concepts of Physics -->
         <div class="project-card reveal reveal-delay-3"
           data-href="https://github.com/gokulsanjayreddy/Concepts_of_physics" role="link" tabindex="0">
           <div class="project-card-header">
@@ -387,9 +383,11 @@
           </div>
         </div>
 
-      </div><!-- /.projects-grid -->
+      </div>
     </div>
   </section>
+
+  <div class="section-rule" aria-hidden="true"></div>
 
 
   <!-- ========== PRACTICE & LEARNING REPOS ========== -->
@@ -402,7 +400,7 @@
 
       <div class="practice-list">
 
-        <!-- ── basics_of_HTML-CSS ── -->
+        <!-- basics_of_HTML-CSS -->
         <div class="practice-item reveal reveal-delay-1"
           data-href="https://github.com/gokulsanjayreddy/basics_of_HTML-CSS" role="link" tabindex="0">
           <div class="practice-item-info">
@@ -420,7 +418,7 @@
           </a>
         </div>
 
-        <!-- ── gitstartedwithus_v2 ── -->
+        <!-- gitstartedwithus_v2 -->
         <div class="practice-item reveal reveal-delay-2"
           data-href="https://github.com/gokulsanjayreddy/gitstartedwithus_v2" role="link" tabindex="0">
           <div class="practice-item-info">
@@ -438,7 +436,7 @@
           </a>
         </div>
 
-        <!-- ── DevLabs_2.0 ── -->
+        <!-- DevLabs_2.0 -->
         <div class="practice-item reveal reveal-delay-3" data-href="https://github.com/gokulsanjayreddy/DevLabs_2.0"
           role="link" tabindex="0">
           <div class="practice-item-info">
@@ -456,9 +454,11 @@
           </a>
         </div>
 
-      </div><!-- /.practice-list -->
+      </div>
     </div>
   </section>
+
+  <div class="section-rule" aria-hidden="true"></div>
 
 
   <!-- ========== NOTES & LEARNING LOGS ========== -->
@@ -471,7 +471,7 @@
 
       <div class="notes-list">
 
-        <!-- ── NumPy Notes ── -->
+        <!-- NumPy Notes -->
         <div class="notes-item reveal reveal-delay-1"
           data-href="https://github.com/gokulsanjayreddy/Data_Analysis-Visualization_libraries/blob/main/numpy/numpy_notes.md"
           role="link" tabindex="0">
@@ -490,7 +490,7 @@
           </a>
         </div>
 
-        <!-- ── Pandas Notes ── -->
+        <!-- Pandas Notes -->
         <div class="notes-item reveal reveal-delay-2"
           data-href="https://github.com/gokulsanjayreddy/Data_Analysis-Visualization_libraries/blob/main/Pandas/pandas_notes.md"
           role="link" tabindex="0">
@@ -509,7 +509,7 @@
           </a>
         </div>
 
-        <!-- ── Matplotlib Notes ── -->
+        <!-- Matplotlib Notes -->
         <div class="notes-item reveal reveal-delay-3"
           data-href="https://github.com/gokulsanjayreddy/Data_Analysis-Visualization_libraries/tree/main/mplib"
           role="link" tabindex="0">
@@ -528,9 +528,11 @@
           </a>
         </div>
 
-      </div><!-- /.notes-list -->
+      </div>
     </div>
   </section>
+
+  <div class="section-rule" aria-hidden="true"></div>
 
 
   <!-- ========== CONTACT / FOOTER ========== -->
@@ -538,7 +540,7 @@
     <div class="container">
       <div class="footer-content reveal">
         <h2 class="footer-heading">Get in Touch</h2>
-        <p class="footer-subtext">Feel free to reach out — I'm always open to connecting and discussing new projects.</p>
+        <p class="footer-subtext">Feel free to reach out &mdash; I'm always open to connecting and discussing new projects.</p>
 
         <div class="footer-socials">
           <!-- GitHub -->
@@ -587,6 +589,7 @@
         <div class="footer-divider"></div>
         <p class="footer-copyright">&copy; <span id="current-year"></span> Gokul Sanjay Reddy Chatrala. All rights
           reserved.</p>
+        <p class="footer-mono">>> deployed from main</p>
       </div>
     </div>
   </footer>

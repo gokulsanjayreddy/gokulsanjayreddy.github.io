@@ -1,6 +1,6 @@
 /* ============================================
    PORTFOLIO — Main Interactivity & Motion
-   Gokul Sanjay Reddy Chatrala — Algorithmic Minimalism
+   Gokul Sanjay Reddy Chatrala — The Broadsheet
    ============================================ */
 (function () {
   'use strict';
@@ -38,41 +38,26 @@
     });
 
     heroTl
-      .fromTo('#hero-greeting',
-        { opacity: 0, y: 16 },
-        { opacity: 1, y: 0, duration: 0.5, delay: 0.1 }
+      .fromTo('#hero-rule',
+        { opacity: 0, scaleX: 0 },
+        { opacity: 1, scaleX: 1, duration: 0.6, transformOrigin: 'center center' },
+        { delay: 0.1 }
       )
       .fromTo('#hero-name',
-        { opacity: 0, y: 24 },
-        { opacity: 1, y: 0, duration: 0.7 },
-        '-=0.3'
-      )
-      .fromTo('#hero-tagline',
         { opacity: 0, y: 20 },
-        { opacity: 1, y: 0, duration: 0.6 },
+        { opacity: 1, y: 0, duration: 0.7 },
         '-=0.35'
       )
+      .fromTo('.hero-facts .hero-fact',
+        { opacity: 0, y: 12 },
+        { opacity: 1, y: 0, duration: 0.5, stagger: 0.08 },
+        '-=0.3'
+      )
       .fromTo('.hero-cta .btn',
-        { opacity: 0, y: 16 },
+        { opacity: 0, y: 12 },
         { opacity: 1, y: 0, duration: 0.5, stagger: 0.1 },
         '-=0.3'
       );
-
-    /* Restrained, subtle geometric node parallax on mouse movement */
-    const heroSection = document.getElementById('hero');
-    if (heroSection) {
-      heroSection.addEventListener('mousemove', (e) => {
-        const { clientX, clientY } = e;
-        const deltaX = (clientX - window.innerWidth / 2) / (window.innerWidth / 2);
-        const deltaY = (clientY - window.innerHeight / 2) / (window.innerHeight / 2);
-
-        gsap.to('.shape-1', { x: deltaX * 12, y: deltaY * 10, duration: 1.4, ease: 'power1.out' });
-        gsap.to('.shape-2', { x: -deltaX * 14, y: -deltaY * 12, duration: 1.6, ease: 'power1.out' });
-        gsap.to('.shape-3', { x: deltaX * 8, y: deltaY * 14, duration: 1.5, ease: 'power1.out' });
-        gsap.to('.shape-4', { x: -deltaX * 16, y: deltaY * 8, duration: 1.4, ease: 'power1.out' });
-        gsap.to('.shape-5', { x: deltaX * 10, y: -deltaY * 12, duration: 1.6, ease: 'power1.out' });
-      }, { passive: true });
-    }
   }
 
   /* -------------------------------------------
