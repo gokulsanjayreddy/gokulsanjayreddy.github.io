@@ -1,615 +1,1023 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html class="light" lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport" />
 
-  <!-- SEO -->
-  <title>Gokul Sanjay Reddy Chatrala — Portfolio</title>
-  <meta name="description"
-    content="Personal portfolio of Gokul Sanjay Reddy Chatrala — 2nd year Data Science & AI undergraduate at IIT Bhilai focusing on machine learning systems and data-driven applications." />
+  <!-- Primary Meta Tags -->
+  <title>Gokul Sanjay | Data Science & AI — IIT Bhilai</title>
+  <meta name="title" content="Gokul Sanjay | Data Science & AI — IIT Bhilai" />
+  <meta name="description" content="Personal portfolio of Gokul Sanjay — 2nd year B.Tech in Data Science & AI at IIT Bhilai focusing on machine learning systems, data engineering, and automation." />
   <meta name="author" content="Gokul Sanjay Reddy Chatrala" />
   <meta name="robots" content="index, follow" />
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="Gokul Sanjay Reddy Chatrala — Portfolio" />
-  <meta property="og:description"
-    content="Explore projects, skills, and coursework of Gokul Sanjay Reddy Chatrala, Data Science & AI at IIT Bhilai." />
+  <!-- Open Graph / Social -->
   <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://gokulsanjayreddy.github.io/" />
+  <meta property="og:title" content="Gokul Sanjay — Data Science & AI Portfolio" />
+  <meta property="og:description" content="Machine learning systems, data pipelines, and automation. Portfolio of Gokul Sanjay, IIT Bhilai." />
 
-  <!-- Google Fonts: Playfair Display & Source Sans 3 -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600&family=Source+Sans+3:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap"
-    rel="stylesheet" />
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%231C1812%22/><text x=%2250%%22 y=%2258%%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22serif%22 font-size=%2252%22 fill=%22%23F7F1E5%22>G</text></svg>" />
 
-  <!-- Stylesheet -->
-  <link rel="stylesheet" href="css/style.css" />
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Hanken+Grotesk:ital,wght@0,300..700;1,300..700&family=JetBrains+Mono:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "paper-base": "#F7F1E5",
+            "paper-surface": "#F4EEE1",
+            "paper-card": "#FCFAF5",
+            "paper-raised": "#ECE5D3",
+            "ink-primary": "#1C1812",
+            "ink-secondary": "#57524A",
+            "ink-muted": "#8A847A",
+            "border-subtle": "#E2D9C7",
+            "border-strong": "#1C1812",
+            "accent-rust": "#B5532F",
+            "accent-amber": "#C8922F",
+            "accent-olive": "#3F5A36",
+            "terminal-dark": "#111111",
+            "terminal-bar": "#1C1812"
+          },
+          fontFamily: {
+            "serif": ["EB Garamond", "serif"],
+            "sans": ["Hanken Grotesk", "-apple-system", "sans-serif"],
+            "mono": ["JetBrains Mono", "monospace"]
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    @layer base {
+      html, body {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        background-color: #F7F1E5;
+        color: #1C1812;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        overscroll-behavior-y: none;
+        -webkit-tap-highlight-color: transparent;
+        font-family: 'Hanken Grotesk', sans-serif;
+      }
+      section {
+        scroll-margin-top: 6rem;
+      }
+      @media (min-width: 768px) {
+        section {
+          scroll-margin-top: 4.5rem;
+        }
+      }
+      .pb-safe { padding-bottom: env(safe-area-inset-bottom, 0px); }
+      .pt-safe { padding-top: env(safe-area-inset-top, 0px); }
+    }
+    ::-webkit-scrollbar { display: none; }
+    
+    /* Editorial Ghost Watermark in Warm Sepia / Rust Tone */
+    .ghost-watermark {
+      position: absolute;
+      right: 1.5rem;
+      top: 0.5rem;
+      font-family: 'EB Garamond', serif;
+      font-size: clamp(4.5rem, 10vw, 8.5rem);
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: -0.04em;
+      color: #B5532F;
+      opacity: 0.04;
+      user-select: none;
+      pointer-events: none;
+      z-index: 0;
+      text-transform: uppercase;
+    }
+  </style>
 </head>
+<body class="bg-paper-base text-ink-primary flex flex-col min-h-screen selection:bg-accent-rust selection:text-white antialiased">
 
-<body>
-
-  <!-- ========== NAVBAR ========== -->
-  <nav class="navbar" id="navbar">
-    <div class="scroll-progress-bar" id="scroll-progress-bar"></div>
-    <div class="container">
-      <a href="#hero" class="nav-logo" aria-label="Gokul Sanjay homepage">GSR</a>
-
-      <ul class="nav-links" id="nav-links">
-        <li><a href="#about" class="nav-link">About</a></li>
-        <li><a href="#skills" class="nav-link">Skills</a></li>
-        <li><a href="#projects" class="nav-link">Projects</a></li>
-        <li><a href="#practice" class="nav-link">Practice</a></li>
-        <li><a href="#notes" class="nav-link">Notes</a></li>
-        <li><a href="#contact" class="nav-link">Contact</a></li>
-      </ul>
-
-      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-    </div>
-    <div class="nav-overlay" id="nav-overlay"></div>
-  </nav>
-
-
-  <!-- ========== HERO ========== -->
-  <header class="hero" id="hero">
-    <div class="container">
-      <div class="hero-content">
-        <h1 class="hero-name" id="hero-name">Gokul Sanjay</h1>
-        <div class="hero-rule" id="hero-rule" aria-hidden="true"></div>
-
-        <div class="hero-facts">
-          <span class="hero-fact">machine learning systems</span>
-          <span class="hero-fact">data engineering</span>
-          <span class="hero-fact">automation</span>
+  <!-- 1. TOP STICKY HEADER WITH EMBEDDED SECTIONS BAR -->
+  <header class="fixed top-0 w-full z-50 pt-safe bg-paper-base/95 backdrop-blur-md border-b border-border-subtle shadow-xs">
+    <!-- Main Header Row -->
+    <div class="max-w-7xl mx-auto h-14 sm:h-16 px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4">
+      <!-- Brand / Logo -->
+      <a class="flex items-center gap-2 group cursor-pointer transition-opacity hover:opacity-85 shrink-0" href="#intro" title="Back to top">
+        <span class="w-2.5 h-2.5 rounded-full bg-accent-olive animate-pulse"></span>
+        <div class="flex items-center gap-1.5 font-mono text-xs sm:text-sm">
+          <span class="font-bold tracking-wider text-ink-primary">GSR</span>
+          <span class="text-ink-muted">/</span>
+          <span class="text-ink-secondary text-xs">IIT Bhilai</span>
         </div>
+      </a>
 
-        <div class="hero-cta">
-          <a href="assets/resume.pdf" download class="btn btn-outline" id="cta-resume">
-            <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-              <polyline points="7 10 12 15 17 10" />
-              <line x1="12" y1="15" x2="12" y2="3" />
-            </svg>
-            Resume
-          </a>
-          <a href="https://github.com/gokulsanjayreddy" target="_blank" rel="noopener noreferrer"
-            class="btn btn-outline" id="cta-github">
-            <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-              <path
-                d="M12 .5C5.37.5 0 5.78 0 12.292c0 5.211 3.438 9.63 8.205 11.188.6.111.82-.254.82-.567 0-.28-.01-1.022-.015-2.005-3.338.711-4.042-1.582-4.042-1.582-.546-1.361-1.333-1.724-1.333-1.724-1.089-.73.083-.716.083-.716 1.205.083 1.838 1.215 1.838 1.215 1.07 1.802 2.807 1.281 3.492.98.108-.762.418-1.281.762-1.576-2.665-.297-5.466-1.309-5.466-5.827 0-1.287.465-2.34 1.228-3.165-.123-.298-.532-1.497.117-3.12 0 0 1.001-.315 3.28 1.209A11.5 11.5 0 0 1 12 6.292c1.014.005 2.034.134 2.988.394 2.277-1.524 3.276-1.209 3.276-1.209.65 1.623.241 2.822.118 3.12.765.825 1.226 1.878 1.226 3.165 0 4.53-2.805 5.527-5.475 5.818.43.364.814 1.083.814 2.182 0 1.574-.014 2.846-.014 3.232 0 .316.216.683.824.567C20.565 21.917 24 17.5 24 12.292 24 5.78 18.627.5 12 .5z" />
-            </svg>
-            GitHub
-          </a>
-          <a href="https://www.linkedin.com/in/gokulsanjayreddychatrala/" target="_blank" rel="noopener noreferrer"
-            class="btn btn-outline" id="cta-linkedin">
-            <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-              <path
-                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zM6.84 20.452H3.834V9H6.84v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-            </svg>
-            LinkedIn
-          </a>
-        </div>
+      <!-- Desktop Sections Bar (Moved from Bottom to Header) -->
+      <nav class="hidden md:flex items-center gap-1 bg-paper-surface border border-border-subtle rounded-full p-1 shadow-2xs font-mono text-xs uppercase tracking-wider" id="desktop-header-nav">
+        <a class="header-nav-item px-3.5 py-1 rounded-full text-accent-rust font-semibold bg-paper-card border border-border-subtle/60 shadow-2xs transition-all cursor-pointer" href="#intro" data-target="intro">Intro</a>
+        <a class="header-nav-item px-3.5 py-1 rounded-full text-ink-muted hover:text-ink-primary transition-all cursor-pointer" href="#about" data-target="about">About</a>
+        <a class="header-nav-item px-3.5 py-1 rounded-full text-ink-muted hover:text-ink-primary transition-all cursor-pointer" href="#skills" data-target="skills">Skills</a>
+        <a class="header-nav-item px-3.5 py-1 rounded-full text-ink-muted hover:text-ink-primary transition-all cursor-pointer" href="#projects" data-target="projects">Projects</a>
+        <a class="header-nav-item px-3.5 py-1 rounded-full text-ink-muted hover:text-ink-primary transition-all cursor-pointer" href="#practice" data-target="practice">Workshop</a>
+        <a class="header-nav-item px-3.5 py-1 rounded-full text-ink-muted hover:text-ink-primary transition-all cursor-pointer" href="#notes" data-target="notes">Notes</a>
+        <a class="header-nav-item px-3.5 py-1 rounded-full text-ink-muted hover:text-ink-primary transition-all cursor-pointer" href="#contact" data-target="contact">Contact</a>
+      </nav>
 
-        <div class="terminal" role="img" aria-label="Terminal output from Gokul Sanjay's machine">
-          <p class="terminal-line"><span class="t-prompt">$</span> whoami</p>
-          <p class="terminal-line t-out">gokulsanjay | b.tech data science &amp; ai, iit bhilai</p>
-          <p class="terminal-line"><span class="t-prompt">$</span> cat focus.txt</p>
-          <p class="terminal-line t-out">ml systems, data pipelines, automation</p>
-          <p class="terminal-line"><span class="t-prompt">$</span> run portfolio --latest</p>
-          <p class="terminal-line t-out">crop-recommendation, autoinsight, concepts-of-physics</p>
-        </div>
+      <!-- Right Action: Available Status -->
+      <div class="flex items-center gap-2 shrink-0">
+        <a href="#contact" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-mono font-medium border border-accent-rust/25 bg-accent-rust/10 text-accent-rust tracking-tight hover:bg-accent-rust/20 transition-colors cursor-pointer">
+          <span class="w-1.5 h-1.5 rounded-full bg-accent-rust"></span>
+          Available
+        </a>
       </div>
     </div>
+
+    <!-- Mobile Sub-Header Sections Bar (Tier 2 on mobile only) -->
+    <nav class="md:hidden flex items-center justify-around border-t border-border-subtle/60 px-2 py-1.5 font-mono text-[10px] tracking-wider uppercase bg-paper-base/95" id="mobile-header-nav">
+      <a class="mobile-nav-item flex flex-col items-center justify-center px-2 py-0.5 text-accent-rust font-semibold transition-colors cursor-pointer" href="#intro" data-target="intro">
+        <span class="material-symbols-outlined text-[16px]">home</span>
+        <span>Intro</span>
+      </a>
+      <a class="mobile-nav-item flex flex-col items-center justify-center px-2 py-0.5 text-ink-muted hover:text-ink-primary transition-colors cursor-pointer" href="#about" data-target="about">
+        <span class="material-symbols-outlined text-[16px]">person</span>
+        <span>About</span>
+      </a>
+      <a class="mobile-nav-item flex flex-col items-center justify-center px-2 py-0.5 text-ink-muted hover:text-ink-primary transition-colors cursor-pointer" href="#skills" data-target="skills">
+        <span class="material-symbols-outlined text-[16px]">code</span>
+        <span>Skills</span>
+      </a>
+      <a class="mobile-nav-item flex flex-col items-center justify-center px-2 py-0.5 text-ink-muted hover:text-ink-primary transition-colors cursor-pointer" href="#projects" data-target="projects">
+        <span class="material-symbols-outlined text-[16px]">folder</span>
+        <span>Projects</span>
+      </a>
+      <a class="mobile-nav-item flex flex-col items-center justify-center px-2 py-0.5 text-ink-muted hover:text-ink-primary transition-colors cursor-pointer" href="#notes" data-target="notes">
+        <span class="material-symbols-outlined text-[16px]">menu_book</span>
+        <span>Notes</span>
+      </a>
+      <a class="mobile-nav-item flex flex-col items-center justify-center px-2 py-0.5 text-ink-muted hover:text-ink-primary transition-colors cursor-pointer" href="#contact" data-target="contact">
+        <span class="material-symbols-outlined text-[16px]">mail</span>
+        <span>Contact</span>
+      </a>
+    </nav>
   </header>
 
+  <!-- MAIN WRAPPER (TRIMMED LEFT SPACE WITH EXPANDED MAX-W-7XL CONTAINER) -->
+  <main class="flex-1 flex flex-col relative w-full pt-24 md:pt-20 pb-16 bg-paper-base">
 
-  <!-- ========== ABOUT & EDUCATION ========== -->
-  <section class="about section" id="about">
-    <div class="container">
-      <div class="section-header reveal">
-        <h2 class="section-title">About &amp; Education</h2>
-        <p class="section-subtitle">Background, academic focus, and what I build.</p>
-      </div>
-
-      <div class="about-content reveal reveal-delay-1">
-        <div class="about-text-content">
-          <p class="about-paragraph">
-            I am a 2nd year undergraduate student pursuing my <strong>B.Tech in Data Science and Artificial Intelligence</strong> at the <strong>Indian Institute of Technology (IIT) Bhilai</strong>, graduating in <strong>2029</strong> with a current academic standing of <strong>8.65 CGPA</strong>.
-          </p>
-          <p class="about-paragraph">
-            Based in Raipur, Chhattisgarh, I focus on designing machine learning systems, data engineering pipelines, and building automation tools that turn complex models into reliable, real-world applications.
-          </p>
+    <!-- 2. HERO / INTRO SECTION -->
+    <section class="relative w-full border-b border-border-subtle overflow-hidden" id="intro">
+      <div class="ghost-watermark">INTRO</div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-16 relative z-10 flex flex-col gap-6">
+        <!-- Status Chip -->
+        <div class="flex items-center gap-2">
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-paper-card border border-border-subtle text-xs font-mono text-ink-secondary shadow-xs">
+            <span class="w-1.5 h-1.5 rounded-full bg-accent-olive"></span>
+            <span>IIT Bhilai · Data Science &amp; Artificial Intelligence</span>
+          </span>
         </div>
 
-        <blockquote class="about-quote">
-          <p>&ldquo;Turning complex models into reliable, real-world applications.&rdquo;</p>
-        </blockquote>
-
-        <div class="about-highlights-row">
-          <div class="about-highlight-pill">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
-              <path d="M6 12v5c3 3 9 3 12 0v-5"/>
-            </svg>
-            <span><strong>IIT Bhilai</strong> &bull; Raipur</span>
-          </div>
-          <div class="about-highlight-pill">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <polyline points="16 18 22 12 16 6"/>
-              <polyline points="8 6 2 12 8 18"/>
-            </svg>
-            <span><strong>Data Science &amp; AI</strong></span>
-          </div>
-          <div class="about-highlight-pill">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <circle cx="12" cy="8" r="7"/>
-              <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/>
-            </svg>
-            <span><strong>8.65 CGPA</strong></span>
-          </div>
-          <div class="about-highlight-pill">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
-              <line x1="16" y1="2" x2="16" y2="6"/>
-              <line x1="8" y1="2" x2="8" y2="6"/>
-              <line x1="3" y1="10" x2="21" y2="10"/>
-            </svg>
-            <span>Class of <strong>2029</strong></span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="section-rule" aria-hidden="true"></div>
-
-
-  <!-- ========== SKILLS ========== -->
-  <section class="skills section" id="skills">
-    <div class="container">
-      <div class="section-header reveal">
-        <h2 class="section-title">Skills &amp; Technologies</h2>
-        <p class="section-subtitle">Languages, libraries, and developer tools used across my repositories.</p>
-      </div>
-
-      <div class="skills-grid">
-        <!-- Languages -->
-        <div class="skills-card reveal reveal-delay-1">
-          <div class="skills-card-header">
-            <div class="skills-card-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <polyline points="16 18 22 12 16 6" />
-                <polyline points="8 6 2 12 8 18" />
-              </svg>
-            </div>
-            <h3 class="skills-card-title">Languages</h3>
-          </div>
-          <div class="skills-tags">
-            <span class="tag">Python</span>
-            <span class="tag">JavaScript</span>
-            <span class="tag">HTML</span>
-            <span class="tag">CSS</span>
-          </div>
-        </div>
-
-        <!-- ML & Data -->
-        <div class="skills-card reveal reveal-delay-2">
-          <div class="skills-card-header">
-            <div class="skills-card-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M21.21 15.89A10 10 0 1 1 8 2.83" />
-                <path d="M22 12A10 10 0 0 0 12 2v10z" />
-              </svg>
-            </div>
-            <h3 class="skills-card-title">ML &amp; Data</h3>
-          </div>
-          <div class="skills-tags">
-            <span class="tag">NumPy</span>
-            <span class="tag">Pandas</span>
-            <span class="tag">Matplotlib</span>
-            <span class="tag">Plotly</span>
-            <span class="tag">Seaborn</span>
-            <span class="tag">scikit-learn</span>
-            <span class="tag">Streamlit</span>
-          </div>
-        </div>
-
-        <!-- Web & Backend -->
-        <div class="skills-card reveal reveal-delay-3">
-          <div class="skills-card-header">
-            <div class="skills-card-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <circle cx="12" cy="12" r="10" />
-                <line x1="2" y1="12" x2="22" y2="12" />
-                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
-              </svg>
-            </div>
-            <h3 class="skills-card-title">Web &amp; Backend</h3>
-          </div>
-          <div class="skills-tags">
-            <span class="tag">FastAPI</span>
-            <span class="tag">Flask</span>
-            <span class="tag">React</span>
-            <span class="tag">Tailwind</span>
-            <span class="tag">SQLite</span>
-            <span class="tag">SQLAlchemy</span>
-          </div>
-        </div>
-
-        <!-- Tools & Workflow -->
-        <div class="skills-card reveal reveal-delay-4">
-          <div class="skills-card-header">
-            <div class="skills-card-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path
-                  d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
-              </svg>
-            </div>
-            <h3 class="skills-card-title">Tools &amp; Workflow</h3>
-          </div>
-          <div class="skills-tags">
-            <span class="tag">Git</span>
-            <span class="tag">GitHub</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="section-rule" aria-hidden="true"></div>
-
-
-  <!-- ========== PROJECTS ========== -->
-  <section class="projects section" id="projects">
-    <div class="container">
-      <div class="section-header reveal">
-        <h2 class="section-title">Projects</h2>
-        <p class="section-subtitle">Selected machine learning models and web development projects.</p>
-      </div>
-
-      <div class="projects-grid">
-
-        <!-- Crop Recommendation System -->
-        <div class="project-card reveal reveal-delay-1"
-          data-href="https://github.com/gokulsanjayreddy/crop-recommendation-system" role="link" tabindex="0">
-          <div class="project-card-header">
-            <div class="project-card-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M12 2v8" />
-                <path d="m4.93 10.93 1.41 1.41" />
-                <path d="M2 18h2" />
-                <path d="M20 18h2" />
-                <path d="m19.07 10.93-1.41 1.41" />
-                <path d="M22 22H2" />
-                <path d="m8 6 4-4 4 4" />
-                <path d="M16 18a4 4 0 0 0-8 0" />
-              </svg>
-            </div>
-            <div class="project-card-links">
-              <a href="https://github.com/gokulsanjayreddy/crop-recommendation-system" target="_blank"
-                rel="noopener noreferrer" class="project-card-link" title="GitHub repo" aria-label="GitHub repository for Crop Recommendation System">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                  <path
-                    d="M12 .5C5.37.5 0 5.78 0 12.292c0 5.211 3.438 9.63 8.205 11.188.6.111.82-.254.82-.567 0-.28-.01-1.022-.015-2.005-3.338.711-4.042-1.582-4.042-1.582-.546-1.361-1.333-1.724-1.333-1.724-1.089-.73.083-.716.083-.716 1.205.083 1.838 1.215 1.838 1.215 1.07 1.802 2.807 1.281 3.492.98.108-.762.418-1.281.762-1.576-2.665-.297-5.466-1.309-5.466-5.827 0-1.287.465-2.34 1.228-3.165-.123-.298-.532-1.497.117-3.12 0 0 1.001-.315 3.28 1.209A11.5 11.5 0 0 1 12 6.292c1.014.005 2.034.134 2.988.394 2.277-1.524 3.276-1.209 3.276-1.209.65 1.623.241 2.822.118 3.12.765.825 1.226 1.878 1.226 3.165 0 4.53-2.805 5.527-5.475 5.818.43.364.814 1.083.814 2.182 0 1.574-.014 2.846-.014 3.232 0 .316.216.683.824.567C20.565 21.917 24 17.5 24 12.292 24 5.78 18.627.5 12 .5z" />
-                </svg>
-              </a>
+        <!-- Headline & Name & Action Buttons -->
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+          <div class="flex flex-col gap-2.5 max-w-3xl">
+            <h1 class="font-serif text-5xl sm:text-6xl md:text-7xl font-normal tracking-tight text-ink-primary leading-[1.05]">
+              Gokul Sanjay
+            </h1>
+            <!-- Domain roles tags -->
+            <div class="flex items-center flex-wrap gap-x-2.5 gap-y-1 font-mono text-xs md:text-sm text-ink-secondary pt-1">
+              <span class="text-accent-rust font-semibold">machine learning systems</span>
+              <span class="text-ink-muted">·</span>
+              <span>data engineering</span>
+              <span class="text-ink-muted">·</span>
+              <span>automation</span>
             </div>
           </div>
-          <h3 class="project-card-title">Crop Recommendation System</h3>
-          <p class="project-card-desc">Full-stack AI system ranking the top-3 crops using a two-stage ML pipeline (RandomForest &amp; gradient boosting) with crop rotation penalties. FastAPI backend with React frontend (synthetic data prototype).</p>
-          <div class="project-card-tags">
-            <span class="tag">Python</span>
-            <span class="tag">FastAPI</span>
-            <span class="tag">React</span>
-            <span class="tag">Tailwind</span>
-            <span class="tag">scikit-learn</span>
-            <span class="tag">SQLite</span>
+
+          <!-- Quick Action Buttons -->
+          <div class="flex flex-wrap items-center gap-2.5 shrink-0">
+            <a class="px-4 py-2 rounded-lg bg-ink-primary text-paper-card font-mono text-xs font-medium hover:bg-neutral-800 transition-all flex items-center gap-1.5 shadow-xs active:scale-95 border border-ink-primary cursor-pointer" href="assets/resume.pdf" target="_blank" rel="noopener noreferrer">
+              <span>Resume</span>
+              <span class="text-[11px] text-paper-base/80">↗</span>
+            </a>
+            <a class="px-4 py-2 rounded-lg bg-paper-card border border-border-subtle text-ink-primary font-mono text-xs font-medium hover:border-ink-primary transition-all flex items-center gap-1.5 shadow-xs active:scale-95 cursor-pointer" href="https://github.com/gokulsanjayreddy" rel="noopener noreferrer" target="_blank">
+              <span>GitHub</span>
+              <span class="text-[11px] text-ink-muted">↗</span>
+            </a>
+            <a class="px-4 py-2 rounded-lg bg-paper-card border border-border-subtle text-ink-primary font-mono text-xs font-medium hover:border-ink-primary transition-all flex items-center gap-1.5 shadow-xs active:scale-95 cursor-pointer" href="https://www.linkedin.com/in/gokulsanjayreddychatrala/" rel="noopener noreferrer" target="_blank">
+              <span>LinkedIn</span>
+              <span class="text-[11px] text-ink-muted">↗</span>
+            </a>
           </div>
         </div>
+      </div>
+    </section>
 
-        <!-- AutoInsight -->
-        <div class="project-card reveal reveal-delay-2"
-          data-href="https://github.com/gokulsanjayreddy/AutoInsight" role="link" tabindex="0">
-          <div class="project-card-header">
-            <div class="project-card-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <line x1="18" y1="20" x2="18" y2="10" />
-                <line x1="12" y1="20" x2="12" y2="4" />
-                <line x1="6" y1="20" x2="6" y2="14" />
-              </svg>
+    <!-- 3. INTERACTIVE CLI TERMINAL -->
+    <section class="relative w-full border-b border-border-subtle overflow-hidden" id="terminal">
+      <div class="ghost-watermark">TERMINAL</div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12 relative z-10 flex flex-col gap-4">
+        <div class="flex items-baseline justify-between">
+          <div>
+            <span class="font-mono text-[10px] uppercase tracking-widest text-accent-rust font-bold">01 // REPL CONSOLE</span>
+            <h2 class="font-serif text-2xl md:text-3xl font-normal text-ink-primary">Live Terminal</h2>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="inline-flex items-center gap-1.5 font-mono text-[11px] text-neutral-400">
+              <span class="w-2 h-2 rounded-full bg-[#4EAA52] animate-pulse"></span>
+              interactive · bash v5.2
+            </span>
+            <button id="terminal-clear-btn" class="font-mono text-[11px] text-ink-muted hover:text-accent-rust transition-colors cursor-pointer border border-border-subtle px-2.5 py-0.5 rounded bg-paper-card shadow-2xs" title="Clear terminal screen">
+              clear
+            </button>
+          </div>
+        </div>
+        <!-- Hairline Terminal Container in Deep Vintage Charcoal -->
+        <div id="terminal-container" class="w-full rounded-xl bg-terminal-dark border border-neutral-800 shadow-[0_8px_30px_rgba(28,24,18,0.12)] overflow-hidden text-neutral-200 cursor-text">
+          <!-- Terminal Titlebar -->
+          <div class="h-9 px-3.5 bg-terminal-bar border-b border-neutral-800 flex items-center justify-between select-none">
+            <div class="flex items-center gap-1.5">
+              <span class="w-2.5 h-2.5 rounded-full bg-[#E05244] inline-block cursor-pointer hover:opacity-80" id="term-btn-close" title="Clear terminal"></span>
+              <span class="w-2.5 h-2.5 rounded-full bg-[#E5A93C] inline-block"></span>
+              <span class="w-2.5 h-2.5 rounded-full bg-[#4EAA52] inline-block"></span>
             </div>
-            <div class="project-card-links">
-              <a href="https://github.com/gokulsanjayreddy/AutoInsight" target="_blank"
-                rel="noopener noreferrer" class="project-card-link" title="GitHub repo" aria-label="GitHub repository for AutoInsight">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                  <path
-                    d="M12 .5C5.37.5 0 5.78 0 12.292c0 5.211 3.438 9.63 8.205 11.188.6.111.82-.254.82-.567 0-.28-.01-1.022-.015-2.005-3.338.711-4.042-1.582-4.042-1.582-.546-1.361-1.333-1.724-1.333-1.724-1.089-.73.083-.716.083-.716 1.205.083 1.838 1.215 1.838 1.215 1.07 1.802 2.807 1.281 3.492.98.108-.762.418-1.281.762-1.576-2.665-.297-5.466-1.309-5.466-5.827 0-1.287.465-2.34 1.228-3.165-.123-.298-.532-1.497.117-3.12 0 0 1.001-.315 3.28 1.209A11.5 11.5 0 0 1 12 6.292c1.014.005 2.034.134 2.988.394 2.277-1.524 3.276-1.209 3.276-1.209.65 1.623.241 2.822.118 3.12.765.825 1.226 1.878 1.226 3.165 0 4.53-2.805 5.527-5.475 5.818.43.364.814 1.083.814 2.182 0 1.574-.014 2.846-.014 3.232 0 .316.216.683.824.567C20.565 21.917 24 17.5 24 12.292 24 5.78 18.627.5 12 .5z" />
-                </svg>
-              </a>
+            <span class="font-mono text-xs text-neutral-400">gokul@iitbhilai:~ (type a question or command)</span>
+            <span class="font-mono text-[11px] text-neutral-500 hidden sm:inline">UTF-8</span>
+          </div>
+          <!-- Terminal Scrollable Body -->
+          <div id="terminal-history" class="p-4 md:p-6 font-mono text-xs md:text-sm flex flex-col gap-3.5 leading-relaxed max-h-[360px] sm:max-h-[420px] overflow-y-auto scroll-smooth">
+            <!-- Initial outputs -->
+            <div class="flex flex-col gap-1">
+              <div class="flex items-center gap-1.5 text-neutral-400">
+                <span class="text-[#4EAA52] font-semibold">$</span>
+                <span class="text-neutral-100 font-medium">whoami</span>
+              </div>
+              <p class="text-neutral-300 pl-3 pt-0.5">gokulsanjay | b.tech data science &amp; ai, iit bhilai</p>
+            </div>
+            <div class="flex flex-col gap-1">
+              <div class="flex items-center gap-1.5 text-neutral-400">
+                <span class="text-[#4EAA52] font-semibold">$</span>
+                <span class="text-neutral-100 font-medium">cat focus.txt</span>
+              </div>
+              <p class="text-[#E07A5F] pl-3 pt-0.5">ml systems, data pipelines, automation</p>
+            </div>
+            <div class="flex flex-col gap-1">
+              <div class="flex items-center gap-1.5 text-neutral-400">
+                <span class="text-[#4EAA52] font-semibold">$</span>
+                <span class="text-neutral-100 font-medium">run portfolio --latest</span>
+              </div>
+              <p class="text-[#E5A93C] pl-3 pt-0.5">
+                <a href="https://github.com/gokulsanjayreddy/crop-recommendation-system" target="_blank" rel="noopener noreferrer" class="hover:underline hover:text-white transition-colors">crop-recommendation</a>, 
+                <a href="https://github.com/gokulsanjayreddy/AutoInsight" target="_blank" rel="noopener noreferrer" class="hover:underline hover:text-white transition-colors">autoinsight</a>, 
+                <a href="https://github.com/gokulsanjayreddy/Concepts_of_physics" target="_blank" rel="noopener noreferrer" class="hover:underline hover:text-white transition-colors">concepts-of-physics</a>
+              </p>
+            </div>
+            <!-- Dynamic command logs will be appended here -->
+          </div>
+
+          <!-- Active Input Row -->
+          <div class="px-4 md:px-6 py-3 bg-[#161616] border-t border-neutral-800/80">
+            <form id="terminal-form" class="flex items-center gap-2 text-neutral-200">
+              <span class="text-[#4EAA52] font-bold select-none text-sm">&gt;</span>
+              <input type="text" id="terminal-input" class="flex-1 bg-transparent border-0 outline-none text-neutral-100 font-mono text-xs md:text-sm placeholder-neutral-500 focus:outline-none focus:ring-0 p-0 m-0 caret-[#4EAA52]" placeholder="Ask a question about Gokul or type 'help', 'skills', 'cgpa'..." autocomplete="off" spellcheck="false" />
+              <button type="submit" class="font-mono text-[11px] text-neutral-400 hover:text-neutral-100 border border-neutral-700 px-2.5 py-0.5 rounded transition-colors cursor-pointer" aria-label="Execute command">
+                Execute
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. ABOUT & EDUCATION SECTION (BALANCED 2-COLUMN DESKTOP GRID) -->
+    <section class="relative w-full border-b border-border-subtle overflow-hidden" id="about">
+      <div class="ghost-watermark">ABOUT</div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-14 relative z-10 flex flex-col gap-6">
+        <div class="flex flex-col gap-1">
+          <span class="font-mono text-[10px] uppercase tracking-widest text-accent-rust font-bold">02 // PROFILE</span>
+          <h2 class="font-serif text-3xl md:text-4xl font-normal text-ink-primary">About &amp; Education</h2>
+          <p class="text-ink-secondary text-xs md:text-sm font-normal">Background, academic focus, and what I build.</p>
+        </div>
+
+        <!-- 2-Column Responsive Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-start">
+          <!-- Left Column: Bio & Pull Quote (7 cols) -->
+          <div class="lg:col-span-7 flex flex-col gap-4 text-[15px] text-ink-secondary leading-relaxed">
+            <p class="font-light text-ink-primary">
+              I am a 2nd year undergraduate student pursuing my <strong class="font-semibold text-ink-primary">B.Tech in Data Science and Artificial Intelligence</strong> at the <strong class="font-semibold text-ink-primary">Indian Institute of Technology (IIT) Bhilai</strong>, graduating in <strong class="font-semibold text-ink-primary">2029</strong> with a current academic standing of <span class="font-mono text-xs font-semibold px-1.5 py-0.5 rounded bg-accent-rust/10 text-accent-rust border border-accent-rust/20">8.65 CGPA</span>.
+            </p>
+            <p class="font-light">
+              Based in Raipur, Chhattisgarh, I focus on designing machine learning systems, data engineering pipelines, and building automation tools that turn complex models into reliable, real-world applications.
+            </p>
+            <!-- Pull Quote Block -->
+            <blockquote class="pl-4 border-l-2 border-accent-rust py-2 bg-paper-card rounded-r-lg border-y border-r border-border-subtle mt-1">
+              <p class="font-serif italic text-base md:text-lg text-ink-primary">
+                “Turning complex models into reliable, real-world applications.”
+              </p>
+            </blockquote>
+          </div>
+
+          <!-- Right Column: Stat Cards Matrix (5 cols) -->
+          <div class="lg:col-span-5 grid grid-cols-2 gap-3.5">
+            <div class="p-4 rounded-xl border border-border-subtle bg-paper-card shadow-xs flex flex-col gap-1">
+              <span class="font-mono text-[10px] uppercase tracking-wider text-ink-muted">Institution</span>
+              <span class="font-serif text-lg sm:text-xl font-bold text-ink-primary">IIT Bhilai</span>
+              <span class="font-mono text-xs text-ink-secondary">Raipur</span>
+            </div>
+            <div class="p-4 rounded-xl border border-border-subtle bg-paper-card shadow-xs flex flex-col gap-1">
+              <span class="font-mono text-[10px] uppercase tracking-wider text-ink-muted">Program</span>
+              <span class="font-serif text-lg sm:text-xl font-bold text-ink-primary">Data Science &amp; AI</span>
+              <span class="font-mono text-xs text-ink-secondary">B.Tech</span>
+            </div>
+            <div class="p-4 rounded-xl border border-border-subtle bg-paper-card shadow-xs flex flex-col gap-1">
+              <span class="font-mono text-[10px] uppercase tracking-wider text-ink-muted">Academic Standing</span>
+              <span class="font-mono text-xl sm:text-2xl font-bold text-accent-rust">8.65 CGPA</span>
+              <span class="font-mono text-xs text-ink-secondary">Current Score</span>
+            </div>
+            <div class="p-4 rounded-xl border border-border-subtle bg-paper-card shadow-xs flex flex-col gap-1">
+              <span class="font-mono text-[10px] uppercase tracking-wider text-ink-muted">Graduation</span>
+              <span class="font-serif text-lg sm:text-xl font-bold text-ink-primary">Class of 2029</span>
+              <span class="font-mono text-xs text-ink-secondary">Undergraduate</span>
             </div>
           </div>
-          <h3 class="project-card-title">AutoInsight</h3>
-          <p class="project-card-desc">Streamlit web application automating exploratory data analysis on CSVs with column-type inference, dataset profiling, and interactive Plotly visualization views.</p>
-          <div class="project-card-tags">
-            <span class="tag">Python</span>
-            <span class="tag">Streamlit</span>
-            <span class="tag">Pandas</span>
-            <span class="tag">Matplotlib</span>
-            <span class="tag">Plotly</span>
-          </div>
         </div>
+      </div>
+    </section>
 
-        <!-- Concepts of Physics -->
-        <div class="project-card reveal reveal-delay-3"
-          data-href="https://github.com/gokulsanjayreddy/Concepts_of_physics" role="link" tabindex="0">
-          <div class="project-card-header">
-            <div class="project-card-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <polyline points="16 18 22 12 16 6" />
-                <polyline points="8 6 2 12 8 18" />
-              </svg>
+    <!-- 5. SKILLS & TECHNOLOGIES SECTION (2x2 GRID ON DESKTOP) -->
+    <section class="relative w-full border-b border-border-subtle overflow-hidden" id="skills">
+      <div class="ghost-watermark">STACK</div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-14 relative z-10 flex flex-col gap-6">
+        <div class="flex flex-col gap-1">
+          <span class="font-mono text-[10px] uppercase tracking-widest text-accent-rust font-bold">03 // TOOLKIT</span>
+          <h2 class="font-serif text-3xl md:text-4xl font-normal text-ink-primary">Skills &amp; Technologies</h2>
+          <p class="text-ink-secondary text-xs md:text-sm font-normal">Languages, libraries, and developer tools used across my repositories.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6">
+          <!-- Category 1: Languages -->
+          <div class="p-4 sm:p-5 rounded-xl border border-border-subtle bg-paper-card shadow-xs flex flex-col gap-3">
+            <div class="flex items-center justify-between border-b border-border-subtle/80 pb-2">
+              <span class="font-mono text-xs font-bold tracking-wider uppercase text-ink-primary">Languages</span>
+              <span class="font-mono text-[10px] text-ink-muted">04</span>
             </div>
-            <div class="project-card-links">
-              <a href="https://github.com/gokulsanjayreddy/Concepts_of_physics" target="_blank"
-                rel="noopener noreferrer" class="project-card-link" title="GitHub repo" aria-label="GitHub repository for Concepts of Physics">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                  <path
-                    d="M12 .5C5.37.5 0 5.78 0 12.292c0 5.211 3.438 9.63 8.205 11.188.6.111.82-.254.82-.567 0-.28-.01-1.022-.015-2.005-3.338.711-4.042-1.582-4.042-1.582-.546-1.361-1.333-1.724-1.333-1.724-1.089-.73.083-.716.083-.716 1.205.083 1.838 1.215 1.838 1.215 1.07 1.802 2.807 1.281 3.492.98.108-.762.418-1.281.762-1.576-2.665-.297-5.466-1.309-5.466-5.827 0-1.287.465-2.34 1.228-3.165-.123-.298-.532-1.497.117-3.12 0 0 1.001-.315 3.28 1.209A11.5 11.5 0 0 1 12 6.292c1.014.005 2.034.134 2.988.394 2.277-1.524 3.276-1.209 3.276-1.209.65 1.623.241 2.822.118 3.12.765.825 1.226 1.878 1.226 3.165 0 4.53-2.805 5.527-5.475 5.818.43.364.814 1.083.814 2.182 0 1.574-.014 2.846-.014 3.232 0 .316.216.683.824.567C20.565 21.917 24 17.5 24 12.292 24 5.78 18.627.5 12 .5z" />
-                </svg>
-              </a>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-3 py-1 rounded-md text-xs font-mono bg-paper-surface border border-border-subtle text-ink-primary">Python</span>
+              <span class="px-3 py-1 rounded-md text-xs font-mono bg-paper-surface border border-border-subtle text-ink-primary">JavaScript</span>
+              <span class="px-3 py-1 rounded-md text-xs font-mono bg-paper-surface border border-border-subtle text-ink-primary">HTML</span>
+              <span class="px-3 py-1 rounded-md text-xs font-mono bg-paper-surface border border-border-subtle text-ink-primary">CSS</span>
             </div>
           </div>
-          <h3 class="project-card-title">Concepts of Physics</h3>
-          <p class="project-card-desc">Educational web platform helping students learn and visualize core physics concepts through interactive lessons built with Flask, HTML, and CSS.</p>
-          <div class="project-card-tags">
-            <span class="tag">HTML</span>
-            <span class="tag">CSS</span>
-            <span class="tag">Python</span>
-            <span class="tag">Flask</span>
+          <!-- Category 2: ML & Data -->
+          <div class="p-4 sm:p-5 rounded-xl border border-border-subtle bg-paper-card shadow-xs flex flex-col gap-3">
+            <div class="flex items-center justify-between border-b border-border-subtle/80 pb-2">
+              <span class="font-mono text-xs font-bold tracking-wider uppercase text-ink-primary">ML &amp; Data</span>
+              <span class="font-mono text-[10px] px-2 py-0.5 rounded bg-accent-rust/10 text-accent-rust font-semibold border border-accent-rust/20">Core Focus</span>
+            </div>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-3 py-1 rounded-md text-xs font-mono bg-paper-surface border border-border-subtle text-ink-primary">NumPy</span>
+              <span class="px-3 py-1 rounded-md text-xs font-mono bg-paper-surface border border-border-subtle text-ink-primary">Pandas</span>
+              <span class="px-3 py-1 rounded-md text-xs font-mono bg-paper-surface border border-border-subtle text-ink-primary">Matplotlib</span>
+              <span class="px-3 py-1 rounded-md text-xs font-mono bg-paper-surface border border-border-subtle text-ink-primary">Plotly</span>
+              <span class="px-3 py-1 rounded-md text-xs font-mono bg-paper-surface border border-border-subtle text-ink-primary">Seaborn</span>
+              <span class="px-3 py-1 rounded-md text-xs font-mono bg-paper-surface border border-border-subtle text-ink-primary">scikit-learn</span>
+              <span class="px-3 py-1 rounded-md text-xs font-mono bg-paper-surface border border-border-subtle text-ink-primary">Streamlit</span>
+            </div>
+          </div>
+          <!-- Category 3: Web & Backend -->
+          <div class="p-4 sm:p-5 rounded-xl border border-border-subtle bg-paper-card shadow-xs flex flex-col gap-3">
+            <div class="flex items-center justify-between border-b border-border-subtle/80 pb-2">
+              <span class="font-mono text-xs font-bold tracking-wider uppercase text-ink-primary">Web &amp; Backend</span>
+              <span class="font-mono text-[10px] text-ink-muted">Services</span>
+            </div>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-3 py-1 rounded-md text-xs font-mono bg-paper-surface border border-border-subtle text-ink-primary">FastAPI</span>
+              <span class="px-3 py-1 rounded-md text-xs font-mono bg-paper-surface border border-border-subtle text-ink-primary">Flask</span>
+              <span class="px-3 py-1 rounded-md text-xs font-mono bg-paper-surface border border-border-subtle text-ink-primary">React</span>
+              <span class="px-3 py-1 rounded-md text-xs font-mono bg-paper-surface border border-border-subtle text-ink-primary">Tailwind</span>
+              <span class="px-3 py-1 rounded-md text-xs font-mono bg-paper-surface border border-border-subtle text-ink-primary">SQLite</span>
+              <span class="px-3 py-1 rounded-md text-xs font-mono bg-paper-surface border border-border-subtle text-ink-primary">SQLAlchemy</span>
+            </div>
+          </div>
+          <!-- Category 4: Tools & Workflow -->
+          <div class="p-4 sm:p-5 rounded-xl border border-border-subtle bg-paper-card shadow-xs flex flex-col gap-3">
+            <div class="flex items-center justify-between border-b border-border-subtle/80 pb-2">
+              <span class="font-mono text-xs font-bold tracking-wider uppercase text-ink-primary">Tools &amp; Workflow</span>
+              <span class="font-mono text-[10px] text-ink-muted">VCS</span>
+            </div>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-3 py-1 rounded-md text-xs font-mono bg-paper-surface border border-border-subtle text-ink-primary">Git</span>
+              <span class="px-3 py-1 rounded-md text-xs font-mono bg-paper-surface border border-border-subtle text-ink-primary">GitHub</span>
+            </div>
           </div>
         </div>
-
       </div>
-    </div>
-  </section>
+    </section>
 
-  <div class="section-rule" aria-hidden="true"></div>
+    <!-- 6. PROJECTS SECTION (3-COLUMN DESKTOP GRID) -->
+    <section class="relative w-full border-b border-border-subtle overflow-hidden" id="projects">
+      <div class="ghost-watermark">PROJECTS</div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-14 relative z-10 flex flex-col gap-6">
+        <div class="flex flex-col gap-1">
+          <span class="font-mono text-[10px] uppercase tracking-widest text-accent-rust font-bold">04 // SELECTED REPOSITORIES</span>
+          <h2 class="font-serif text-3xl md:text-4xl font-normal text-ink-primary">Projects</h2>
+          <p class="text-ink-secondary text-xs md:text-sm font-normal">Selected machine learning models and web development projects.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6">
+          <!-- Project 1: Crop Recommendation System -->
+          <article class="p-5 sm:p-6 rounded-xl border border-border-subtle bg-paper-card shadow-xs flex flex-col justify-between gap-4 relative transition-all hover:border-accent-rust/60 group">
+            <div class="flex flex-col gap-3">
+              <div class="flex items-start justify-between gap-2">
+                <span class="font-mono text-[10px] font-semibold text-accent-rust uppercase tracking-wider">Dual-Stage AI Model</span>
+                <a class="w-8 h-8 rounded-lg border border-border-subtle bg-paper-surface flex items-center justify-center text-ink-primary group-hover:border-accent-rust group-hover:text-accent-rust transition-colors shrink-0 cursor-pointer" href="https://github.com/gokulsanjayreddy/crop-recommendation-system" rel="noopener noreferrer" target="_blank" title="GitHub repo" aria-label="Crop Recommendation System on GitHub">
+                  <span class="material-symbols-outlined text-[16px]">north_east</span>
+                </a>
+              </div>
+              <h3 class="font-serif text-xl font-bold text-ink-primary leading-snug">
+                <a class="group-hover:text-accent-rust transition-colors cursor-pointer" href="https://github.com/gokulsanjayreddy/crop-recommendation-system" rel="noopener noreferrer" target="_blank">
+                  Crop Recommendation System
+                </a>
+              </h3>
+              <p class="text-ink-secondary text-xs leading-relaxed font-light">
+                Full-stack AI system ranking the top-3 crops using a two-stage ML pipeline (RandomForest &amp; gradient boosting) with crop rotation penalties.
+              </p>
+            </div>
+            <div class="flex flex-wrap gap-1.5 pt-3 border-t border-border-subtle/60">
+              <span class="px-2 py-0.5 rounded font-mono text-[10px] bg-paper-surface border border-border-subtle text-ink-secondary">Python</span>
+              <span class="px-2 py-0.5 rounded font-mono text-[10px] bg-paper-surface border border-border-subtle text-ink-secondary">FastAPI</span>
+              <span class="px-2 py-0.5 rounded font-mono text-[10px] bg-paper-surface border border-border-subtle text-ink-secondary">React</span>
+              <span class="px-2 py-0.5 rounded font-mono text-[10px] bg-paper-surface border border-border-subtle text-ink-secondary">scikit-learn</span>
+            </div>
+          </article>
 
+          <!-- Project 2: AutoInsight -->
+          <article class="p-5 sm:p-6 rounded-xl border border-border-subtle bg-paper-card shadow-xs flex flex-col justify-between gap-4 relative transition-all hover:border-accent-olive/60 group">
+            <div class="flex flex-col gap-3">
+              <div class="flex items-start justify-between gap-2">
+                <span class="font-mono text-[10px] font-semibold text-accent-olive uppercase tracking-wider">Automated EDA Engine</span>
+                <a class="w-8 h-8 rounded-lg border border-border-subtle bg-paper-surface flex items-center justify-center text-ink-primary group-hover:border-accent-olive group-hover:text-accent-olive transition-colors shrink-0 cursor-pointer" href="https://github.com/gokulsanjayreddy/AutoInsight" rel="noopener noreferrer" target="_blank" title="GitHub repo" aria-label="AutoInsight on GitHub">
+                  <span class="material-symbols-outlined text-[16px]">north_east</span>
+                </a>
+              </div>
+              <h3 class="font-serif text-xl font-bold text-ink-primary leading-snug">
+                <a class="group-hover:text-accent-olive transition-colors cursor-pointer" href="https://github.com/gokulsanjayreddy/AutoInsight" rel="noopener noreferrer" target="_blank">
+                  AutoInsight
+                </a>
+              </h3>
+              <p class="text-ink-secondary text-xs leading-relaxed font-light">
+                Streamlit web application automating exploratory data analysis on CSVs with column-type inference, dataset profiling, and interactive Plotly charts.
+              </p>
+            </div>
+            <div class="flex flex-wrap gap-1.5 pt-3 border-t border-border-subtle/60">
+              <span class="px-2 py-0.5 rounded font-mono text-[10px] bg-paper-surface border border-border-subtle text-ink-secondary">Python</span>
+              <span class="px-2 py-0.5 rounded font-mono text-[10px] bg-paper-surface border border-border-subtle text-ink-secondary">Streamlit</span>
+              <span class="px-2 py-0.5 rounded font-mono text-[10px] bg-paper-surface border border-border-subtle text-ink-secondary">Pandas</span>
+              <span class="px-2 py-0.5 rounded font-mono text-[10px] bg-paper-surface border border-border-subtle text-ink-secondary">Plotly</span>
+            </div>
+          </article>
 
-  <!-- ========== PRACTICE & LEARNING REPOS ========== -->
-  <section class="practice section" id="practice">
-    <div class="container">
-      <div class="section-header reveal">
-        <h2 class="section-title">Practice &amp; Learning Repos</h2>
-        <p class="section-subtitle">Repositories from coursework, tutorials, and hands-on experiments.</p>
+          <!-- Project 3: Concepts of Physics -->
+          <article class="p-5 sm:p-6 rounded-xl border border-border-subtle bg-paper-card shadow-xs flex flex-col justify-between gap-4 relative transition-all hover:border-ink-primary/50 group">
+            <div class="flex flex-col gap-3">
+              <div class="flex items-start justify-between gap-2">
+                <span class="font-mono text-[10px] font-semibold text-ink-muted uppercase tracking-wider">Educational Simulation</span>
+                <a class="w-8 h-8 rounded-lg border border-border-subtle bg-paper-surface flex items-center justify-center text-ink-primary group-hover:border-ink-primary transition-colors shrink-0 cursor-pointer" href="https://github.com/gokulsanjayreddy/Concepts_of_physics" rel="noopener noreferrer" target="_blank" title="GitHub repo" aria-label="Concepts of Physics on GitHub">
+                  <span class="material-symbols-outlined text-[16px]">north_east</span>
+                </a>
+              </div>
+              <h3 class="font-serif text-xl font-bold text-ink-primary leading-snug">
+                <a class="group-hover:text-ink-primary transition-colors cursor-pointer" href="https://github.com/gokulsanjayreddy/Concepts_of_physics" rel="noopener noreferrer" target="_blank">
+                  Concepts of Physics
+                </a>
+              </h3>
+              <p class="text-ink-secondary text-xs leading-relaxed font-light">
+                Educational web platform helping students learn and visualize core physics concepts through interactive lessons built with Flask, HTML, and CSS.
+              </p>
+            </div>
+            <div class="flex flex-wrap gap-1.5 pt-3 border-t border-border-subtle/60">
+              <span class="px-2 py-0.5 rounded font-mono text-[10px] bg-paper-surface border border-border-subtle text-ink-secondary">Python</span>
+              <span class="px-2 py-0.5 rounded font-mono text-[10px] bg-paper-surface border border-border-subtle text-ink-secondary">Flask</span>
+              <span class="px-2 py-0.5 rounded font-mono text-[10px] bg-paper-surface border border-border-subtle text-ink-secondary">HTML</span>
+              <span class="px-2 py-0.5 rounded font-mono text-[10px] bg-paper-surface border border-border-subtle text-ink-secondary">CSS</span>
+            </div>
+          </article>
+        </div>
       </div>
+    </section>
 
-      <div class="practice-list">
-
-        <!-- basics_of_HTML-CSS -->
-        <div class="practice-item reveal reveal-delay-1"
-          data-href="https://github.com/gokulsanjayreddy/basics_of_HTML-CSS" role="link" tabindex="0">
-          <div class="practice-item-info">
-            <p class="practice-item-name">basics_of_HTML-CSS</p>
-            <p class="practice-item-note">HTML &amp; CSS practice and frontend fundamentals</p>
-          </div>
-          <a href="https://github.com/gokulsanjayreddy/basics_of_HTML-CSS" target="_blank" rel="noopener noreferrer"
-            class="practice-item-link" title="View repo" aria-label="View basics of HTML and CSS repository">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-              <polyline points="15 3 21 3 21 9" />
-              <line x1="10" y1="14" x2="21" y2="3" />
-            </svg>
+    <!-- 7. PRACTICE & LEARNING REPOS (3-COLUMN DESKTOP GRID) -->
+    <section class="relative w-full border-b border-border-subtle overflow-hidden" id="practice">
+      <div class="ghost-watermark">PRACTICE</div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-14 relative z-10 flex flex-col gap-6">
+        <div class="flex flex-col gap-1">
+          <span class="font-mono text-[10px] uppercase tracking-widest text-accent-rust font-bold">05 // WORKSHOP</span>
+          <h2 class="font-serif text-3xl md:text-4xl font-normal text-ink-primary">Practice &amp; Learning Repos</h2>
+          <p class="text-ink-secondary text-xs md:text-sm font-normal">Repositories from coursework, tutorials, and hands-on experiments.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-6">
+          <!-- Repo 1 -->
+          <a class="p-4 sm:p-5 rounded-xl border border-border-subtle bg-paper-card shadow-xs hover:border-accent-rust/50 hover:bg-paper-surface/50 transition-all flex flex-col justify-between gap-3 cursor-pointer group" href="https://github.com/gokulsanjayreddy/basics_of_HTML-CSS" rel="noopener noreferrer" target="_blank">
+            <div class="flex flex-col gap-1">
+              <div class="flex items-center justify-between">
+                <span class="font-mono text-xs font-bold text-ink-primary group-hover:text-accent-rust transition-colors truncate">basics_of_HTML-CSS</span>
+                <span class="font-mono text-xs text-ink-muted group-hover:text-accent-rust transition-colors">↗</span>
+              </div>
+              <span class="text-xs text-ink-muted font-light leading-relaxed">HTML &amp; CSS practice and frontend fundamentals</span>
+            </div>
+          </a>
+          <!-- Repo 2 -->
+          <a class="p-4 sm:p-5 rounded-xl border border-border-subtle bg-paper-card shadow-xs hover:border-accent-rust/50 hover:bg-paper-surface/50 transition-all flex flex-col justify-between gap-3 cursor-pointer group" href="https://github.com/gokulsanjayreddy/gitstartedwithus_v2" rel="noopener noreferrer" target="_blank">
+            <div class="flex flex-col gap-1">
+              <div class="flex items-center justify-between">
+                <span class="font-mono text-xs font-bold text-ink-primary group-hover:text-accent-rust transition-colors truncate">gitstartedwithus_v2</span>
+                <span class="font-mono text-xs text-ink-muted group-hover:text-accent-rust transition-colors">↗</span>
+              </div>
+              <span class="text-xs text-ink-muted font-light leading-relaxed">Git and collaborative open-source workflow practice (forked)</span>
+            </div>
+          </a>
+          <!-- Repo 3 -->
+          <a class="p-4 sm:p-5 rounded-xl border border-border-subtle bg-paper-card shadow-xs hover:border-accent-rust/50 hover:bg-paper-surface/50 transition-all flex flex-col justify-between gap-3 cursor-pointer group" href="https://github.com/gokulsanjayreddy/DevLabs_2.0" rel="noopener noreferrer" target="_blank">
+            <div class="flex flex-col gap-1">
+              <div class="flex items-center justify-between">
+                <span class="font-mono text-xs font-bold text-ink-primary group-hover:text-accent-rust transition-colors truncate">DevLabs_2.0</span>
+                <span class="font-mono text-xs text-ink-muted group-hover:text-accent-rust transition-colors">↗</span>
+              </div>
+              <span class="text-xs text-ink-muted font-light leading-relaxed">DevLabs 2.0, OpenLake IIT Bhilai technical labs (forked)</span>
+            </div>
           </a>
         </div>
-
-        <!-- gitstartedwithus_v2 -->
-        <div class="practice-item reveal reveal-delay-2"
-          data-href="https://github.com/gokulsanjayreddy/gitstartedwithus_v2" role="link" tabindex="0">
-          <div class="practice-item-info">
-            <p class="practice-item-name">gitstartedwithus_v2</p>
-            <p class="practice-item-note">Git and collaborative open-source workflow practice (forked)</p>
-          </div>
-          <a href="https://github.com/gokulsanjayreddy/gitstartedwithus_v2" target="_blank" rel="noopener noreferrer"
-            class="practice-item-link" title="View repo" aria-label="View gitstartedwithus repository">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-              <polyline points="15 3 21 3 21 9" />
-              <line x1="10" y1="14" x2="21" y2="3" />
-            </svg>
-          </a>
-        </div>
-
-        <!-- DevLabs_2.0 -->
-        <div class="practice-item reveal reveal-delay-3" data-href="https://github.com/gokulsanjayreddy/DevLabs_2.0"
-          role="link" tabindex="0">
-          <div class="practice-item-info">
-            <p class="practice-item-name">DevLabs_2.0</p>
-            <p class="practice-item-note">DevLabs 2.0, OpenLake IIT Bhilai technical labs (forked)</p>
-          </div>
-          <a href="https://github.com/gokulsanjayreddy/DevLabs_2.0" target="_blank" rel="noopener noreferrer"
-            class="practice-item-link" title="View repo" aria-label="View DevLabs 2.0 repository">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-              <polyline points="15 3 21 3 21 9" />
-              <line x1="10" y1="14" x2="21" y2="3" />
-            </svg>
-          </a>
-        </div>
-
       </div>
-    </div>
-  </section>
+    </section>
 
-  <div class="section-rule" aria-hidden="true"></div>
-
-
-  <!-- ========== NOTES & LEARNING LOGS ========== -->
-  <section class="notes section" id="notes">
-    <div class="container">
-      <div class="section-header reveal">
-        <h2 class="section-title">Notes &amp; Learning Logs</h2>
-        <p class="section-subtitle">Study notes and technical reference material from my learning journey.</p>
+    <!-- 8. NOTES & LEARNING LOGS (3-COLUMN DESKTOP GRID) -->
+    <section class="relative w-full border-b border-border-subtle overflow-hidden" id="notes">
+      <div class="ghost-watermark">NOTES</div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-14 relative z-10 flex flex-col gap-6">
+        <div class="flex flex-col gap-1">
+          <span class="font-mono text-[10px] uppercase tracking-widest text-accent-rust font-bold">06 // DOCUMENTATION</span>
+          <h2 class="font-serif text-3xl md:text-4xl font-normal text-ink-primary">Notes &amp; Learning Logs</h2>
+          <p class="text-ink-secondary text-xs md:text-sm font-normal">Study notes and technical reference material from my learning journey.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-6">
+          <!-- Note 1 -->
+          <a class="p-4 sm:p-5 rounded-xl border border-border-subtle bg-paper-card shadow-xs hover:border-accent-rust/50 hover:bg-paper-surface/50 transition-all flex flex-col justify-between gap-3 cursor-pointer group" href="https://github.com/gokulsanjayreddy/Data_Analysis-Visualization_libraries/blob/main/numpy/numpy_notes.md" rel="noopener noreferrer" target="_blank">
+            <div class="flex flex-col gap-2">
+              <div class="flex items-center justify-between">
+                <span class="font-mono text-[10px] text-accent-rust font-semibold">DOC // 01</span>
+                <span class="material-symbols-outlined text-[18px] text-ink-muted group-hover:text-accent-rust transition-colors">description</span>
+              </div>
+              <h3 class="font-serif text-lg font-bold text-ink-primary group-hover:text-accent-rust transition-colors">NumPy Notes</h3>
+              <p class="text-xs text-ink-secondary font-light leading-relaxed">
+                Core NumPy concepts, multidimensional arrays, and vectorization patterns.
+              </p>
+            </div>
+          </a>
+          <!-- Note 2 -->
+          <a class="p-4 sm:p-5 rounded-xl border border-border-subtle bg-paper-card shadow-xs hover:border-accent-rust/50 hover:bg-paper-surface/50 transition-all flex flex-col justify-between gap-3 cursor-pointer group" href="https://github.com/gokulsanjayreddy/Data_Analysis-Visualization_libraries/blob/main/Pandas/pandas_notes.md" rel="noopener noreferrer" target="_blank">
+            <div class="flex flex-col gap-2">
+              <div class="flex items-center justify-between">
+                <span class="font-mono text-[10px] text-accent-rust font-semibold">DOC // 02</span>
+                <span class="material-symbols-outlined text-[18px] text-ink-muted group-hover:text-accent-rust transition-colors">description</span>
+              </div>
+              <h3 class="font-serif text-lg font-bold text-ink-primary group-hover:text-accent-rust transition-colors">Pandas Notes</h3>
+              <p class="text-xs text-ink-secondary font-light leading-relaxed">
+                DataFrames, grouping, missing data handling, and data wrangling patterns.
+              </p>
+            </div>
+          </a>
+          <!-- Note 3 -->
+          <a class="p-4 sm:p-5 rounded-xl border border-border-subtle bg-paper-card shadow-xs hover:border-accent-rust/50 hover:bg-paper-surface/50 transition-all flex flex-col justify-between gap-3 cursor-pointer group" href="https://github.com/gokulsanjayreddy/Data_Analysis-Visualization_libraries/tree/main/mplib" rel="noopener noreferrer" target="_blank">
+            <div class="flex flex-col gap-2">
+              <div class="flex items-center justify-between">
+                <span class="font-mono text-[10px] text-accent-rust font-semibold">DOC // 03</span>
+                <span class="material-symbols-outlined text-[18px] text-ink-muted group-hover:text-accent-rust transition-colors">description</span>
+              </div>
+              <h3 class="font-serif text-lg font-bold text-ink-primary group-hover:text-accent-rust transition-colors">Matplotlib Notes</h3>
+              <p class="text-xs text-ink-secondary font-light leading-relaxed">
+                Plotting figures, subplots, visual customization, and export patterns.
+              </p>
+            </div>
+          </a>
+        </div>
       </div>
+    </section>
 
-      <div class="notes-list">
-
-        <!-- NumPy Notes -->
-        <div class="notes-item reveal reveal-delay-1"
-          data-href="https://github.com/gokulsanjayreddy/Data_Analysis-Visualization_libraries/blob/main/numpy/numpy_notes.md"
-          role="link" tabindex="0">
-          <div class="notes-item-info">
-            <p class="notes-item-name">NumPy Notes</p>
-            <p class="notes-item-note">Core NumPy concepts, multidimensional arrays, and vectorization patterns.</p>
-          </div>
-          <a href="https://github.com/gokulsanjayreddy/Data_Analysis-Visualization_libraries/blob/main/numpy/numpy_notes.md"
-            target="_blank" rel="noopener noreferrer" class="notes-item-link" title="View notes" aria-label="View NumPy notes">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-              <polyline points="15 3 21 3 21 9" />
-              <line x1="10" y1="14" x2="21" y2="3" />
-            </svg>
+    <!-- 9. GET IN TOUCH SECTION -->
+    <section class="relative w-full overflow-hidden" id="contact">
+      <div class="ghost-watermark">CONTACT</div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-14 relative z-10 flex flex-col gap-6">
+        <div class="flex flex-col gap-1">
+          <span class="font-mono text-[10px] uppercase tracking-widest text-accent-rust font-bold">07 // REACH OUT</span>
+          <h2 class="font-serif text-3xl md:text-4xl font-normal text-ink-primary">Get in Touch</h2>
+          <p class="text-ink-secondary text-xs md:text-sm font-normal">Feel free to reach out — I'm always open to connecting and discussing new projects.</p>
+        </div>
+        <!-- Social Links Grid -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-3 lg:gap-4 font-mono text-xs">
+          <a class="p-3.5 sm:p-4 rounded-xl border border-border-subtle bg-paper-card hover:border-accent-rust transition-colors flex items-center justify-between text-ink-primary shadow-xs cursor-pointer group" href="https://github.com/gokulsanjayreddy" rel="noopener noreferrer" target="_blank">
+            <span class="group-hover:text-accent-rust transition-colors">GitHub</span>
+            <span class="text-ink-muted group-hover:text-accent-rust text-xs transition-colors">↗</span>
+          </a>
+          <a class="p-3.5 sm:p-4 rounded-xl border border-border-subtle bg-paper-card hover:border-accent-rust transition-colors flex items-center justify-between text-ink-primary shadow-xs cursor-pointer group" href="https://www.linkedin.com/in/gokulsanjayreddychatrala/" rel="noopener noreferrer" target="_blank">
+            <span class="group-hover:text-accent-rust transition-colors">LinkedIn</span>
+            <span class="text-ink-muted group-hover:text-accent-rust text-xs transition-colors">↗</span>
+          </a>
+          <a class="p-3.5 sm:p-4 rounded-xl border border-border-subtle bg-paper-card hover:border-accent-rust transition-colors flex items-center justify-between text-ink-primary shadow-xs cursor-pointer group" href="https://x.com/gsrposts" rel="noopener noreferrer" target="_blank">
+            <span class="group-hover:text-accent-rust transition-colors">X (Twitter)</span>
+            <span class="text-ink-muted group-hover:text-accent-rust text-xs transition-colors">↗</span>
+          </a>
+          <a class="p-3.5 sm:p-4 rounded-xl border border-border-subtle bg-paper-card hover:border-accent-rust transition-colors flex items-center justify-between text-ink-primary shadow-xs cursor-pointer group" href="https://www.instagram.com/gokulsanjayreddy" rel="noopener noreferrer" target="_blank">
+            <span class="group-hover:text-accent-rust transition-colors">Instagram</span>
+            <span class="text-ink-muted group-hover:text-accent-rust text-xs transition-colors">↗</span>
+          </a>
+          <!-- Direct Email Link spanning full width -->
+          <a class="p-3.5 sm:p-4 rounded-xl border border-border-subtle bg-paper-card hover:border-accent-rust transition-colors flex items-center justify-between text-ink-primary shadow-xs cursor-pointer group col-span-2 md:col-span-4" href="mailto:gokulsanjayreddy@gmail.com" title="Send email to Gokul Sanjay">
+            <div class="flex items-center gap-2">
+              <span class="material-symbols-outlined text-[16px] text-accent-rust">mail</span>
+              <span class="group-hover:text-accent-rust transition-colors">gokulsanjayreddy@gmail.com</span>
+            </div>
+            <span class="text-ink-muted group-hover:text-accent-rust text-xs transition-colors">↗</span>
           </a>
         </div>
-
-        <!-- Pandas Notes -->
-        <div class="notes-item reveal reveal-delay-2"
-          data-href="https://github.com/gokulsanjayreddy/Data_Analysis-Visualization_libraries/blob/main/Pandas/pandas_notes.md"
-          role="link" tabindex="0">
-          <div class="notes-item-info">
-            <p class="notes-item-name">Pandas Notes</p>
-            <p class="notes-item-note">DataFrames, grouping, missing data handling, and data wrangling patterns.</p>
+        <!-- Footer Colophon -->
+        <div class="pt-8 border-t border-border-subtle flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 font-mono text-xs text-ink-muted">
+          <span class="text-ink-secondary font-medium">© Gokul Sanjay Reddy Chatrala. All rights reserved.</span>
+          <div class="flex items-center gap-1 text-[11px] text-accent-rust">
+            <span>&gt;&gt; deployed from main</span>
           </div>
-          <a href="https://github.com/gokulsanjayreddy/Data_Analysis-Visualization_libraries/blob/main/Pandas/pandas_notes.md"
-            target="_blank" rel="noopener noreferrer" class="notes-item-link" title="View notes" aria-label="View Pandas notes">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-              <polyline points="15 3 21 3 21 9" />
-              <line x1="10" y1="14" x2="21" y2="3" />
-            </svg>
-          </a>
         </div>
-
-        <!-- Matplotlib Notes -->
-        <div class="notes-item reveal reveal-delay-3"
-          data-href="https://github.com/gokulsanjayreddy/Data_Analysis-Visualization_libraries/tree/main/mplib"
-          role="link" tabindex="0">
-          <div class="notes-item-info">
-            <p class="notes-item-name">Matplotlib Notes</p>
-            <p class="notes-item-note">Plotting figures, subplots, visual customization, and export patterns.</p>
-          </div>
-          <a href="https://github.com/gokulsanjayreddy/Data_Analysis-Visualization_libraries/tree/main/mplib"
-            target="_blank" rel="noopener noreferrer" class="notes-item-link" title="View notes" aria-label="View Matplotlib notes">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-              <polyline points="15 3 21 3 21 9" />
-              <line x1="10" y1="14" x2="21" y2="3" />
-            </svg>
-          </a>
-        </div>
-
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
-  <div class="section-rule" aria-hidden="true"></div>
+  <!-- Interactive Navigation Active State Spy (Updated for Header Navs) -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const desktopNavItems = document.querySelectorAll('#desktop-header-nav .header-nav-item');
+      const mobileNavItems = document.querySelectorAll('#mobile-header-nav .mobile-nav-item');
+      const sectionIds = ['intro', 'about', 'skills', 'projects', 'practice', 'notes', 'contact'];
+      const sectionElements = sectionIds
+        .map(id => document.getElementById(id))
+        .filter(Boolean);
 
+      function updateActiveNav() {
+        const scrollPosition = window.scrollY + 180;
+        let activeId = sectionIds[0];
 
-  <!-- ========== CONTACT / FOOTER ========== -->
-  <footer class="footer" id="contact">
-    <div class="container">
-      <div class="footer-content reveal">
-        <h2 class="footer-heading">Get in Touch</h2>
-        <p class="footer-subtext">Feel free to reach out &mdash; I'm always open to connecting and discussing new projects.</p>
+        for (let i = 0; i < sectionElements.length; i++) {
+          const sec = sectionElements[i];
+          if (scrollPosition >= sec.offsetTop) {
+            activeId = sec.id;
+          }
+        }
 
-        <div class="footer-socials">
-          <!-- GitHub -->
-          <a href="https://github.com/gokulsanjayreddy" target="_blank" rel="noopener noreferrer"
-            class="social-link" title="GitHub" id="footer-github" aria-label="Gokul Sanjay on GitHub">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-              <path
-                d="M12 .5C5.37.5 0 5.78 0 12.292c0 5.211 3.438 9.63 8.205 11.188.6.111.82-.254.82-.567 0-.28-.01-1.022-.015-2.005-3.338.711-4.042-1.582-4.042-1.582-.546-1.361-1.333-1.724-1.333-1.724-1.089-.73.083-.716.083-.716 1.205.083 1.838 1.215 1.838 1.215 1.07 1.802 2.807 1.281 3.492.98.108-.762.418-1.281.762-1.576-2.665-.297-5.466-1.309-5.466-5.827 0-1.287.465-2.34 1.228-3.165-.123-.298-.532-1.497.117-3.12 0 0 1.001-.315 3.28 1.209A11.5 11.5 0 0 1 12 6.292c1.014.005 2.034.134 2.988.394 2.277-1.524 3.276-1.209 3.276-1.209.65 1.623.241 2.822.118 3.12.765.825 1.226 1.878 1.226 3.165 0 4.53-2.805 5.527-5.475 5.818.43.364.814 1.083.814 2.182 0 1.574-.014 2.846-.014 3.232 0 .316.216.683.824.567C20.565 21.917 24 17.5 24 12.292 24 5.78 18.627.5 12 .5z" />
-            </svg>
-          </a>
-          <!-- LinkedIn -->
-          <a href="https://www.linkedin.com/in/gokulsanjayreddychatrala/" target="_blank" rel="noopener noreferrer"
-            class="social-link" title="LinkedIn" id="footer-linkedin" aria-label="Gokul Sanjay on LinkedIn">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-              <path
-                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zM6.84 20.452H3.834V9H6.84v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-            </svg>
-          </a>
-          <!-- X (Twitter) -->
-          <a href="https://x.com/gsrposts" target="_blank" rel="noopener noreferrer" class="social-link"
-            title="X (Twitter)" id="footer-x" aria-label="Gokul Sanjay on X">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-              <path
-                d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-            </svg>
-          </a>
-          <!-- Instagram -->
-          <a href="https://www.instagram.com/gokulsanjayreddy" target="_blank" rel="noopener noreferrer"
-            class="social-link" title="Instagram" id="footer-instagram" aria-label="Gokul Sanjay on Instagram">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-              <path
-                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z" />
-            </svg>
-          </a>
-          <!-- Email -->
-          <a href="mailto:gokulsanjayreddy@gmail.com" class="social-link" title="Email"
-            id="footer-email" aria-label="Send email to Gokul Sanjay">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-              stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <rect x="2" y="4" width="20" height="16" rx="2" />
-              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
-            </svg>
-          </a>
-        </div>
+        // Update Desktop Header Nav
+        desktopNavItems.forEach(item => {
+          const target = item.getAttribute('data-target');
+          if (target === activeId) {
+            item.classList.remove('text-ink-muted');
+            item.classList.add('text-accent-rust', 'font-semibold', 'bg-paper-card', 'border', 'border-border-subtle/60', 'shadow-2xs');
+          } else {
+            item.classList.remove('text-accent-rust', 'font-semibold', 'bg-paper-card', 'border', 'border-border-subtle/60', 'shadow-2xs');
+            item.classList.add('text-ink-muted');
+          }
+        });
 
-        <div class="footer-divider"></div>
-        <p class="footer-copyright">&copy; <span id="current-year"></span> Gokul Sanjay Reddy Chatrala. All rights
-          reserved.</p>
-        <p class="footer-mono">>> deployed from main</p>
-      </div>
-    </div>
-  </footer>
+        // Update Mobile Header Nav
+        mobileNavItems.forEach(item => {
+          const target = item.getAttribute('data-target');
+          if (target === activeId) {
+            item.classList.remove('text-ink-muted');
+            item.classList.add('text-accent-rust', 'font-semibold');
+          } else {
+            item.classList.remove('text-accent-rust', 'font-semibold');
+            item.classList.add('text-ink-muted');
+          }
+        });
+      }
 
-  <!-- Back to Top Button -->
-  <button class="back-to-top" id="back-to-top" aria-label="Back to top" title="Back to top">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <line x1="12" y1="19" x2="12" y2="5" />
-      <polyline points="5 12 12 5 19 12" />
-    </svg>
-  </button>
+      window.addEventListener('scroll', updateActiveNav, { passive: true });
+      updateActiveNav();
 
-  <!-- GSAP CDN Libraries -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+      // ========== INTERACTIVE CLI TERMINAL ENGINE ==========
+      const terminalContainer = document.getElementById('terminal-container');
+      const terminalHistory = document.getElementById('terminal-history');
+      const terminalForm = document.getElementById('terminal-form');
+      const terminalInput = document.getElementById('terminal-input');
+      const clearBtn = document.getElementById('terminal-clear-btn');
+      const termCloseBtn = document.getElementById('term-btn-close');
 
-  <!-- Script -->
-  <script src="js/script.js"></script>
+      if (terminalForm && terminalInput && terminalHistory) {
+        const commandHistory = [];
+        let historyIndex = -1;
+
+        if (terminalContainer) {
+          terminalContainer.addEventListener('click', (e) => {
+            if (e.target.tagName !== 'A' && e.target.tagName !== 'BUTTON') {
+              terminalInput.focus();
+            }
+          });
+        }
+
+        function clearTerminal() {
+          terminalHistory.innerHTML = `
+            <div class="text-neutral-400 text-xs italic py-1">
+              Console cleared. Ask any question about Gokul or type <span class="text-[#4EAA52]">help</span>.
+            </div>
+          `;
+          terminalInput.value = '';
+          terminalInput.focus();
+        }
+
+        if (clearBtn) clearBtn.addEventListener('click', clearTerminal);
+        if (termCloseBtn) termCloseBtn.addEventListener('click', clearTerminal);
+
+        terminalInput.addEventListener('keydown', (e) => {
+          if (e.key === 'ArrowUp') {
+            e.preventDefault();
+            if (commandHistory.length > 0) {
+              if (historyIndex > 0) historyIndex--;
+              else historyIndex = 0;
+              terminalInput.value = commandHistory[historyIndex];
+            }
+          } else if (e.key === 'ArrowDown') {
+            e.preventDefault();
+            if (commandHistory.length > 0) {
+              if (historyIndex < commandHistory.length - 1) {
+                historyIndex++;
+                terminalInput.value = commandHistory[historyIndex];
+              } else {
+                historyIndex = commandHistory.length;
+                terminalInput.value = '';
+              }
+            }
+          }
+        });
+
+        function evaluateQuery(raw) {
+          const trimmed = raw.trim();
+          if (!trimmed) return null;
+
+          const clean = trimmed.toLowerCase()
+            .replace(/[?!.,;:]/g, ' ')
+            .replace(/\s+/g, ' ')
+            .trim();
+
+          if (clean === 'clear' || clean === 'cls') {
+            clearTerminal();
+            return '__CLEARED__';
+          }
+
+          if (
+            clean === 'help' ||
+            clean === 'commands' ||
+            clean === 'man' ||
+            clean === 'menu' ||
+            clean.includes('what can i ask') ||
+            clean.includes('how to use')
+          ) {
+            return `
+              <div class="space-y-1 text-xs">
+                <p class="text-neutral-200 font-semibold">Available Commands & Questions:</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-1 text-neutral-300 pl-1 pt-1">
+                  <div><span class="text-[#4EAA52] font-medium">whoami</span> / who are you?</div>
+                  <div><span class="text-[#4EAA52] font-medium">education</span> / which college?</div>
+                  <div><span class="text-[#4EAA52] font-medium">cgpa</span> / what is your gpa?</div>
+                  <div><span class="text-[#4EAA52] font-medium">skills</span> / tech stack?</div>
+                  <div><span class="text-[#4EAA52] font-medium">projects</span> / show projects</div>
+                  <div><span class="text-[#4EAA52] font-medium">focus</span> / cat focus.txt</div>
+                  <div><span class="text-[#4EAA52] font-medium">notes</span> / documentation</div>
+                  <div><span class="text-[#4EAA52] font-medium">workshop</span> / practice repos</div>
+                  <div><span class="text-[#4EAA52] font-medium">resume</span> / view cv</div>
+                  <div><span class="text-[#4EAA52] font-medium">contact</span> / email & socials</div>
+                  <div><span class="text-[#4EAA52] font-medium">clear</span> / reset console</div>
+                </div>
+                <p class="text-neutral-400 text-[11px] pt-1">Tip: Ask any question about Gokul. Any improper or off-topic question returns <span class="text-neutral-300 font-mono">none</span>.</p>
+              </div>
+            `;
+          }
+
+          // Whoami / Bio / Identity
+          if (
+            clean === 'whoami' ||
+            clean === 'name' ||
+            clean === 'bio' ||
+            clean === 'about' ||
+            clean.includes('who are you') ||
+            clean.includes('who is gokul') ||
+            clean.includes('what is your name') ||
+            clean.includes('tell me about yourself') ||
+            clean.includes('introduce yourself')
+          ) {
+            return `gokulsanjay | B.Tech in Data Science & Artificial Intelligence at IIT Bhilai (Class of 2029). Building ML systems, data engineering pipelines, and automation tools.`;
+          }
+
+          // Education / College / Degree / University
+          if (
+            clean.includes('education') ||
+            clean.includes('college') ||
+            clean.includes('university') ||
+            clean.includes('institute') ||
+            clean.includes('institution') ||
+            clean.includes('iit') ||
+            clean.includes('degree') ||
+            clean.includes('where do you study') ||
+            clean.includes('which college') ||
+            clean.includes('graduation') ||
+            clean.includes('class of')
+          ) {
+            return `Indian Institute of Technology (IIT) Bhilai, Raipur, Chhattisgarh. Pursuing B.Tech in Data Science and Artificial Intelligence (Undergraduate, graduating in 2029).`;
+          }
+
+          // CGPA / GPA / Grades
+          if (
+            clean === 'cgpa' ||
+            clean === 'gpa' ||
+            clean.includes('cgpa') ||
+            clean.includes('gpa') ||
+            clean.includes('grades') ||
+            clean.includes('marks') ||
+            clean.includes('score') ||
+            clean.includes('academic standing')
+          ) {
+            return `Current Academic Standing: <span class="text-[#B5532F] font-bold bg-accent-rust/20 px-1.5 py-0.5 rounded">8.65 CGPA</span> at IIT Bhilai.`;
+          }
+
+          // Focus / Interests / Specialization
+          if (
+            clean === 'focus' ||
+            clean === 'cat focus.txt' ||
+            clean.includes('focus') ||
+            clean.includes('interest') ||
+            clean.includes('specialization') ||
+            clean.includes('what do you do') ||
+            clean.includes('domain')
+          ) {
+            return `<span class="text-[#E07A5F]">ml systems, data engineering pipelines, automation tools</span> turning complex models into reliable, real-world software applications.`;
+          }
+
+          // Skills / Tech Stack / Languages / Frameworks
+          if (
+            clean === 'skills' ||
+            clean === 'stack' ||
+            clean === 'toolkit' ||
+            clean.includes('skills') ||
+            clean.includes('tech stack') ||
+            clean.includes('technologies') ||
+            clean.includes('languages') ||
+            clean.includes('tools') ||
+            clean.includes('what do you know') ||
+            clean.includes('frameworks')
+          ) {
+            return `
+              <div class="space-y-1">
+                <p><strong class="text-neutral-200">Languages:</strong> Python, JavaScript, HTML, CSS</p>
+                <p><strong class="text-neutral-200">ML & Data:</strong> NumPy, Pandas, Matplotlib, Plotly, Seaborn, scikit-learn, Streamlit</p>
+                <p><strong class="text-neutral-200">Web & Backend:</strong> FastAPI, Flask, React, Tailwind CSS, SQLite, SQLAlchemy</p>
+                <p><strong class="text-neutral-200">VCS:</strong> Git, GitHub</p>
+              </div>
+            `;
+          }
+
+          // Projects / Repos / Portfolio
+          if (
+            clean === 'projects' ||
+            clean === 'repos' ||
+            clean === 'run portfolio --latest' ||
+            clean === 'run portfolio' ||
+            clean.includes('projects') ||
+            clean.includes('repositories') ||
+            clean.includes('what have you built') ||
+            clean.includes('show projects') ||
+            clean.includes('portfolio') ||
+            clean.includes('crop') ||
+            clean.includes('autoinsight')
+          ) {
+            return `
+              <div class="space-y-1.5">
+                <p>1. <a href="https://github.com/gokulsanjayreddy/crop-recommendation-system" target="_blank" class="text-[#E5A93C] underline hover:text-white">Crop Recommendation System</a> — Dual-stage ML ranking top-3 crops (RandomForest & gradient boosting) with crop rotation penalties (FastAPI + React).</p>
+                <p>2. <a href="https://github.com/gokulsanjayreddy/AutoInsight" target="_blank" class="text-[#E5A93C] underline hover:text-white">AutoInsight</a> — Automated EDA engine inferring column types, profiling datasets, and generating interactive Plotly charts (Streamlit).</p>
+                <p>3. <a href="https://github.com/gokulsanjayreddy/Concepts_of_physics" target="_blank" class="text-[#E5A93C] underline hover:text-white">Concepts of Physics</a> — Interactive simulation educational platform (Flask + HTML/CSS).</p>
+              </div>
+            `;
+          }
+
+          // Workshop / Practice
+          if (
+            clean.includes('workshop') ||
+            clean.includes('practice') ||
+            clean.includes('devlabs') ||
+            clean.includes('dev labs') ||
+            clean.includes('gitstarted') ||
+            clean.includes('basics of html')
+          ) {
+            return `Practice repositories: <a href="https://github.com/gokulsanjayreddy/basics_of_HTML-CSS" target="_blank" class="text-[#E5A93C] underline">basics_of_HTML-CSS</a>, <a href="https://github.com/gokulsanjayreddy/gitstartedwithus_v2" target="_blank" class="text-[#E5A93C] underline">gitstartedwithus_v2</a>, and <a href="https://github.com/gokulsanjayreddy/DevLabs_2.0" target="_blank" class="text-[#E5A93C] underline">DevLabs_2.0</a>.`;
+          }
+
+          // Notes / Documentation
+          if (
+            clean.includes('notes') ||
+            clean.includes('docs') ||
+            clean.includes('documentation') ||
+            clean.includes('numpy') ||
+            clean.includes('pandas') ||
+            clean.includes('matplotlib') ||
+            clean.includes('learning logs')
+          ) {
+            return `Study reference notes: NumPy Notes, Pandas Notes, and Matplotlib Visualizations available in <a href="https://github.com/gokulsanjayreddy/Data_Analysis-Visualization_libraries" target="_blank" class="text-[#E5A93C] underline hover:text-white">Data_Analysis-Visualization_libraries</a>.`;
+          }
+
+          // Resume / CV
+          if (
+            clean === 'resume' ||
+            clean === 'cv' ||
+            clean.includes('resume') ||
+            clean.includes('cv') ||
+            clean.includes('curriculum vitae')
+          ) {
+            return `Resume document: <a href="assets/resume.pdf" target="_blank" class="text-[#4EAA52] underline hover:text-white font-medium">assets/resume.pdf ↗ (Click to open)</a>`;
+          }
+
+          // Contact / Email / Social / Hire
+          if (
+            clean === 'contact' ||
+            clean === 'email' ||
+            clean.includes('contact') ||
+            clean.includes('email') ||
+            clean.includes('reach') ||
+            clean.includes('hire') ||
+            clean.includes('message') ||
+            clean.includes('social') ||
+            clean.includes('linkedin') ||
+            clean.includes('github') ||
+            clean.includes('instagram') ||
+            clean.includes('twitter')
+          ) {
+            return `
+              <div>
+                <p>Email: <a href="mailto:gokulsanjayreddy@gmail.com" class="text-neutral-100 underline">gokulsanjayreddy@gmail.com</a></p>
+                <p>LinkedIn: <a href="https://www.linkedin.com/in/gokulsanjayreddychatrala/" target="_blank" class="text-[#E5A93C] underline hover:text-white">linkedin.com/in/gokulsanjayreddychatrala</a></p>
+                <p>GitHub: <a href="https://github.com/gokulsanjayreddy" target="_blank" class="text-[#E5A93C] underline hover:text-white">github.com/gokulsanjayreddy</a></p>
+                <p>X: <a href="https://x.com/gsrposts" target="_blank" class="text-[#E5A93C] underline hover:text-white">x.com/gsrposts</a></p>
+              </div>
+            `;
+          }
+
+          // Location / City / Where are you
+          if (
+            clean.includes('location') ||
+            clean.includes('where do you live') ||
+            clean.includes('where are you from') ||
+            clean.includes('raipur') ||
+            clean.includes('chhattisgarh') ||
+            clean.includes('city')
+          ) {
+            return `Based in Raipur, Chhattisgarh, India (IIT Bhilai campus).`;
+          }
+
+          // Improper, off-topic, or unrecognized questions about Gokul return 'none'
+          return `<span class="text-neutral-400 font-mono">none</span>`;
+        }
+
+        terminalForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const query = terminalInput.value.trim();
+          if (!query) return;
+
+          commandHistory.push(query);
+          historyIndex = commandHistory.length;
+
+          const response = evaluateQuery(query);
+          if (response === '__CLEARED__') return;
+
+          const sanitizedQuery = query
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;');
+
+          const entry = document.createElement('div');
+          entry.className = 'flex flex-col gap-1';
+          entry.innerHTML = `
+            <div class="flex items-center gap-1.5 text-neutral-400">
+              <span class="text-[#4EAA52] font-semibold">$</span>
+              <span class="text-neutral-100 font-medium">${sanitizedQuery}</span>
+            </div>
+            <div class="text-neutral-300 pl-3 pt-0.5 leading-relaxed">${response}</div>
+          `;
+
+          terminalHistory.appendChild(entry);
+          terminalInput.value = '';
+          terminalHistory.scrollTop = terminalHistory.scrollHeight;
+        });
+      }
+    });
+  </script>
 </body>
-
 </html>

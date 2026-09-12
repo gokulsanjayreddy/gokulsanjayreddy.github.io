@@ -10,14 +10,9 @@ Personal portfolio website of me
 
 ```
 .
-├── index.html                 # Single-page site
-├── css/
-│   └── style.css              # All styles with CSS variables
-├── js/
-│   └── script.js              # Smooth scroll, Intersection Observer, mobile nav
+├── index.html                 # Complete single-page portfolio with editorial design
 ├── assets/
-│   ├── images/                # Profile photo, project thumbnails
-│   └── resume.pdf             # Your résumé (replace placeholder)
+│   └── resume.pdf             # Résumé document
 ├── .github/
 │   └── workflows/
 │       └── deploy.yml         # GitHub Actions auto-deploy workflow
