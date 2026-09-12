@@ -400,8 +400,9 @@ h1, h2, h3, h4 {
   font-size: var(--font-size-sm);
   line-height: 1.9;
   color: var(--ink);
-  white-space: nowrap;
-  overflow: hidden;
+  white-space: normal;
+  word-break: break-word;
+  overflow-wrap: anywhere;
 }
 
 .t-prompt {
@@ -1027,7 +1028,6 @@ h1, h2, h3, h4 {
 
   .terminal-line {
     font-size: var(--font-size-xs);
-    white-space: normal;
   }
 
   .project-card {
